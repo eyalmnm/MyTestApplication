@@ -31,6 +31,19 @@ public class StatusCounter extends FrameLayout {
 
     private int currentPercents = 0;
     private int requiredPercents = 0;
+    private Runnable DecrementTask = new Runnable() {
+        @Override
+        public void run() {
+            if (currentPercents != requiredPercents) {
+                int step = currentPercents < requiredPercents ? 1 : -1;
+                setCurrentPercents(getCurrentPercents() + step);
+                invalidate();
+            } else {
+                stop();
+            }
+            postDelayed(this, STEP_TIME);
+        }
+    };
 
     public StatusCounter(Context context) {
         this(context, null, 0, 0);
@@ -108,7 +121,6 @@ public class StatusCounter extends FrameLayout {
         int radius = Math.min(getMeasuredWidth(), getMeasuredHeight()) / 2;
         float outerCircleWidth = radius / 15f;
 
-        // Ref: http://stackoverflow.com/questions/17954596/how-to-draw-circle-by-canvas-in-android
         canvas.drawCircle(radius, radius, radius, basePaint);
 
         circlePaint.setColor(circleColor);
@@ -127,18 +139,4 @@ public class StatusCounter extends FrameLayout {
         circlePaint.setColor(percentsColor);
         canvas.drawArc(innerBound, -90, 360 - angle, false, circlePaint);
     }
-
-    private Runnable DecrementTask = new Runnable() {
-        @Override
-        public void run() {
-            if (currentPercents !=  requiredPercents) {
-                int step = currentPercents < requiredPercents ? 1 : -1;
-                setCurrentPercents(getCurrentPercents() + step);
-                invalidate();
-            } else {
-                stop();
-            }
-            postDelayed(this, STEP_TIME);
-        }
-    };
 }
