@@ -1,4 +1,4 @@
-package tests.em_projects.com.mytestapplication.gauges.with_timer;
+package tests.em_projects.com.mytestapplication.animations;
 
 import android.content.Context;
 import android.graphics.Canvas;

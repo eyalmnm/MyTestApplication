@@ -1,4 +1,4 @@
-package tests.em_projects.com.mytestapplication.gauges.with_timer;
+package tests.em_projects.com.mytestapplication.animations;
 
 import android.app.Activity;
 import android.os.Bundle;
