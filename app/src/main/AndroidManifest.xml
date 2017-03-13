@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tests.em_projects.com.mytestapplication">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".plot.PlotActivity" />
+        <activity android:name=".moving_BG.ImageCropActivity" />
+        <activity android:name=".animations.MovingButtons" />
+        <activity android:name=".gauges.CircularSeekBarActivity" />
+        <activity android:name=".images.BigImageDisplay" />
+        <activity android:name=".viewPage.ViewPagerActivity" />
+        <activity android:name=".prefernces.EditablePrefList" />
+        <activity android:name=".data_usage.DataUsageActivity" />
+        <activity android:name=".animations.CombinedAnimAndGauge" />
+        <activity android:name=".carousel.SimpleCarouselTest" />
+        <activity android:name=".gauges.StatusCounterActivity" />
+        <activity android:name=".widgets.CustomViewActivity" />
+        <activity android:name=".moving_BG.MovingCroppedBGActivity" />
+        <activity android:name=".animations.GrowBigImage" />
+        <activity android:name=".ble.DeviceScanActivity" />
+        <activity android:name=".animations.ChargingGaugeActivity" />
+        <activity android:name=".gauges.ArcGaugeActivity" />
+        <activity android:name=".powermat.PlaceTheRing" />
+        <activity android:name=".gauges.ColumnsGaugeActivity" />
+        <activity android:name=".gauges.ActivityFragmentColumnsGauge" />
+        <activity android:name=".gauges.MultiValuesColumnGaugeActivity" />
+        <activity android:name=".gauges.MultiValuesCircleActivity" />
+        <activity android:name=".gauges.with_timer.AutoStatusCounterActivity" />
+    </application>
+
+</manifest>

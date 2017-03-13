@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dashboard_counter_title">20dp</dimen>
+    <dimen name="dashboard_counter_time">39dp</dimen>
+    <dimen name="dashboard_counter_time_left">12dp</dimen>
+</resources>

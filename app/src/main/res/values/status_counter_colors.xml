@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--dashboard -->
+    <color name="dashboard_warning">#fc3</color>
+    <color name="dashboard_empty">#f66</color>
+    <color name="dashboard_ok">#0c6</color>
+    <color name="dashboard_circle">#5c7384</color>
+    <color name="dashboard_inner_circle">#FFFFFF</color>
+    <color name="dashboard_counter_text">#FFFFFF</color>
+    <color name="dashboard_counter_time_left">#8596a3</color>
+    <color name="dashboard_rect">#5d7383</color>
+</resources>

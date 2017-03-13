@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <tests.em_projects.com.mytestapplication.widgets.CustomEditText
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:hint="Text L otf"
+        android:paddingLeft="10dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="30sp"
+        app:custom_font="L" />
+
+    <tests.em_projects.com.mytestapplication.widgets.CustomButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/signUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sign up M otf"
+        android:textSize="25sp"
+        app:custom_font="M" />
+
+    <!--tests.em_projects.com.mytestapplication.widgets.CustomTextView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/usernameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="Text L otf"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="30sp"
+        app:custom_font="L" />
+
+    <tests.em_projects.com.mytestapplication.widgets.CustomTextView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/usernameTextView_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="Text R otf"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="30sp"
+        app:custom_font="R" />
+
+    <tests.em_projects.com.mytestapplication.widgets.CustomTextView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/usernameTextView_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="Text B otf"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="30sp"
+        app:custom_font="B" /-->
+
+
+</LinearLayout>
