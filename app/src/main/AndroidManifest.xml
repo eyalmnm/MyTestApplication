@@ -3,6 +3,7 @@
     package="tests.em_projects.com.mytestapplication">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +40,12 @@
         <activity android:name=".gauges.ActivityFragmentColumnsGauge" />
         <activity android:name=".gauges.MultiValuesColumnGaugeActivity" />
         <activity android:name=".gauges.MultiValuesCircleActivity" />
-        <activity android:name=".gauges.with_timer.AutoStatusCounterActivity" />
+        <activity android:name=".animations.AutoStatusCounterActivity" />
+        <activity
+            android:name=".activity_recognition.ActivityRecognizedActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".activity_recognition.ActivityRecognizedService" />
     </application>
 
 </manifest>
