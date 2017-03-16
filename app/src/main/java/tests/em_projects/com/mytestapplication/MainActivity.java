@@ -9,23 +9,11 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.zip.GZIPInputStream;
 
-import tests.em_projects.com.mytestapplication.gauges.ActivityFragmentColumnsGauge;
-import tests.em_projects.com.mytestapplication.gauges.ColumnsGaugeActivity;
-import tests.em_projects.com.mytestapplication.gauges.MultiValuesCircleActivity;
-import tests.em_projects.com.mytestapplication.gauges.StatusCounterActivity;
-import tests.em_projects.com.mytestapplication.gauges.with_timer.AutoStatusCounterActivity;
-import tests.em_projects.com.mytestapplication.plot.PlotActivity;
+import tests.em_projects.com.mytestapplication.activity_recognition.ActivityRecognizedActivity;
 
 /**
  * @ref http://stackoverflow.com/questions/3185103/how-to-define-a-circle-shape-in-an-android-xml-drawable-file
@@ -37,14 +25,11 @@ import tests.em_projects.com.mytestapplication.plot.PlotActivity;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
-    private ImageView circleShapeImage;
-
-    private float minFactor = 1F;
-    private float maxFactor = 1.2F;
     private final static String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     private final static SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN, Locale.ENGLISH);
-
+    private ImageView circleShapeImage;
+    private float minFactor = 1F;
+    private float maxFactor = 1.2F;
     private final ScaleAnimation growAnim = new ScaleAnimation(minFactor, maxFactor, minFactor, maxFactor, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
     private final ScaleAnimation shrinkAnim = new ScaleAnimation(maxFactor, minFactor, maxFactor, minFactor, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
 
@@ -112,14 +97,15 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, BigImageDisplay.class);
 //                Intent intent = new Intent(MainActivity.this, GrowBigImage.class);
 //                Intent intent = new Intent(MainActivity.this, DeviceScanActivity.class);
-//                Intent intent = new Intent(MainActivity.this, ChargingGaugeActivity.class);
+//                Intent intent = new Intent(MainActivity.this, ChargingGaugeActivity.class); // --> // TODO for PowerMat
 //                Intent intent = new Intent(MainActivity.this, PlaceTheRing.class);    // --> // TODO for PowerMat
 //                Intent intent = new Intent(MainActivity.this, ArcGaugeActivity.class);    // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, ColumnsGaugeActivity.class);    // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, ActivityFragmentColumnsGauge.class);    // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, MultiValuesColumnGaugeActivity.class);  // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, MultiValuesCircleActivity.class);   // --> // TODO for Integral
-                Intent intent = new Intent(MainActivity.this, AutoStatusCounterActivity.class);     // --> // TODO for ListenApp
+//                Intent intent = new Intent(MainActivity.this, AutoStatusCounterActivity.class);     // --> // TODO for ListenApp
+                Intent intent = new Intent(MainActivity.this, ActivityRecognizedActivity.class);    // --> // TODO for ListenApp
                 startActivity(intent);
             }
         }, 100);
