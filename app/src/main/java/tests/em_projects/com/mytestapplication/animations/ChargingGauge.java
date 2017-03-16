@@ -11,12 +11,9 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.sql.Time;
 
 /**
  * Created by eyalmuchtar on 6/7/16.
@@ -55,7 +52,72 @@ public class ChargingGauge extends FrameLayout {
     // Animated Drawables
     private GradientDrawable fullCircleDrawable;
     private GradientDrawable beatingRingDrawable;
+    private Animation.AnimationListener firstGrowAnimationListener = new Animation.AnimationListener() {
+        @Override
+        public void onAnimationStart(Animation animation) {
+            Log.d(TAG, "firstGrowAnimationListener -> onAnimationStart");
+        }
 
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            Log.d(TAG, "firstGrowAnimationListener -> onAnimationEnd");
+            animIsRunning = false;
+            if (View.VISIBLE == getVisibility()) {
+                animIsRunning = true;
+                fullCircleImageView.setVisibility(INVISIBLE);
+                beatingRingImageView.setVisibility(VISIBLE);
+                batteryLevelTextView.setVisibility(VISIBLE);
+                batteryLevelTextView.setAnimation(fadeInAnimation);
+                fadeInAnimation.start();
+                beatingRingImageView.setAnimation(shrinkAnimation);
+                shrinkAnimation.start();
+            }
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+        }
+    };
+    private Animation.AnimationListener shrinkAnimationListener = new Animation.AnimationListener() {
+        @Override
+        public void onAnimationStart(Animation animation) {
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            // Log.d(TAG, "shrinkAnimationListener");
+            animIsRunning = false;
+            if (View.VISIBLE == getVisibility()) {
+                animIsRunning = true;
+                beatingRingImageView.setAnimation(growAnimation);
+                growAnimation.start();
+            }
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+        }
+    };
+    private Animation.AnimationListener growAnimationListener = new Animation.AnimationListener() {
+        @Override
+        public void onAnimationStart(Animation animation) {
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            // Log.d(TAG, "growAnimationListener");
+            animIsRunning = false;
+            if (View.VISIBLE == getVisibility()) {
+                animIsRunning = true;
+                beatingRingImageView.setAnimation(shrinkAnimation);
+                shrinkAnimation.start();
+            }
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+        }
+    };
 
     public ChargingGauge(Context context) {
         super(context);
@@ -156,7 +218,6 @@ public class ChargingGauge extends FrameLayout {
         growAnimation.setAnimationListener(growAnimationListener);
     }
 
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -191,7 +252,6 @@ public class ChargingGauge extends FrameLayout {
     }
 
     public void setBatteryLevel(int level, int color) {
-
         Log.d(TAG, "setBatteryLevel");
         batteryLevelTextView.setTextColor(Color.WHITE);
         batteryLevelTextView.setText(String.valueOf(level) + "%");
@@ -203,69 +263,4 @@ public class ChargingGauge extends FrameLayout {
         }
         this.level = level;
     }
-
-    private Animation.AnimationListener firstGrowAnimationListener = new Animation.AnimationListener() {
-        @Override
-        public void onAnimationStart(Animation animation) {
-            Log.d(TAG, "firstGrowAnimationListener -> onAnimationStart");
-        }
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            Log.d(TAG, "firstGrowAnimationListener -> onAnimationEnd");
-            animIsRunning = false;
-            if (View.VISIBLE == getVisibility()) {
-                animIsRunning = true;
-                fullCircleImageView.setVisibility(INVISIBLE);
-                beatingRingImageView.setVisibility(VISIBLE);
-                batteryLevelTextView.setVisibility(VISIBLE);
-                batteryLevelTextView.setAnimation(fadeInAnimation);
-                fadeInAnimation.start();
-                beatingRingImageView.setAnimation(shrinkAnimation);
-                shrinkAnimation.start();
-            }
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {}
-    };
-
-    private Animation.AnimationListener shrinkAnimationListener = new Animation.AnimationListener() {
-        @Override
-        public void onAnimationStart(Animation animation) {}
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            // Log.d(TAG, "shrinkAnimationListener");
-            animIsRunning = false;
-            if (View.VISIBLE == getVisibility()) {
-                animIsRunning = true;
-                beatingRingImageView.setAnimation(growAnimation);
-                growAnimation.start();
-            }
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-        }
-    };
-
-    private Animation.AnimationListener growAnimationListener = new Animation.AnimationListener() {
-        @Override
-        public void onAnimationStart(Animation animation) {}
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-            // Log.d(TAG, "growAnimationListener");
-            animIsRunning = false;
-            if (View.VISIBLE == getVisibility()) {
-                animIsRunning = true;
-                beatingRingImageView.setAnimation(shrinkAnimation);
-                shrinkAnimation.start();
-            }
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {}
-    };
 }
