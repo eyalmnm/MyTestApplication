@@ -70,7 +70,7 @@ public class ActivityRecognizedActivity extends Activity implements GoogleApiCli
         super.onDestroy();
         Log.d(TAG, "onDestroy");
         // Stop updating activities after application termination
-        if (null != pendingIntent && null != pendingIntent) {
+        if (null != pendingIntent && null != apiClient) {
             ActivityRecognition.ActivityRecognitionApi.removeActivityUpdates(apiClient, pendingIntent);
             apiClient.disconnect();
             pendingIntent = null;
