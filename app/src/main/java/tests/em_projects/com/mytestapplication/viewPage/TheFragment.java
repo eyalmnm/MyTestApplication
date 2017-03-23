@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,17 +19,13 @@ import tests.em_projects.com.mytestapplication.R;
 // Ref: http://stackoverflow.com/questions/10024739/how-to-determine-when-fragment-becomes-visible-in-viewpager
 public class TheFragment extends Fragment {
 
-    private static final String TAG = "TheFragment";
-
     public static final String TITLE = "TITLE";
     public static final String NUMBER = "NUMBER";
-
+    private static final String TAG = "TheFragment";
+    private static int counter;
     private TextView labelTextView;
-
     private String title;
     private int pageNumber;
-    private static int counter;
-
     private ViewPagerActivity viewPagerActivity;
 
     @Override

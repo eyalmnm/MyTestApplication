@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -21,12 +20,10 @@ import tests.em_projects.com.mytestapplication.R;
 
 public class ViewPagerActivity extends FragmentActivity {
 
-    private static final String TAG = "ViewPagerActivity";
-
     public final static int PAGES = 3;
     public final static int LOOPS = 1000;
     public final static int FIRST_PAGE = PAGES * LOOPS / 2;
-
+    private static final String TAG = "ViewPagerActivity";
     private ViewPager mPager;
     private MyPagerAdapter mMyPagerAdapter;
 

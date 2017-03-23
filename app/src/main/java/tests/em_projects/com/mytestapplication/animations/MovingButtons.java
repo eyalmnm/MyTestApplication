@@ -2,8 +2,6 @@ package tests.em_projects.com.mytestapplication.animations;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import tests.em_projects.com.mytestapplication.R;

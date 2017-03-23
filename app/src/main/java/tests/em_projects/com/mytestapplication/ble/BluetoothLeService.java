@@ -40,18 +40,6 @@ import java.util.UUID;
  * given Bluetooth LE device.
  */
 public class BluetoothLeService extends Service {
-    private final static String TAG = BluetoothLeService.class.getSimpleName();
-
-    private BluetoothManager mBluetoothManager;
-    private BluetoothAdapter mBluetoothAdapter;
-    private String mBluetoothDeviceAddress;
-    private BluetoothGatt mBluetoothGatt;
-    private int mConnectionState = STATE_DISCONNECTED;
-
-    private static final int STATE_DISCONNECTED = 0;
-    private static final int STATE_CONNECTING = 1;
-    private static final int STATE_CONNECTED = 2;
-
     public final static String ACTION_GATT_CONNECTED =
             "com.example.bluetooth.le.ACTION_GATT_CONNECTED";
     public final static String ACTION_GATT_DISCONNECTED =
@@ -62,10 +50,18 @@ public class BluetoothLeService extends Service {
             "com.example.bluetooth.le.ACTION_DATA_AVAILABLE";
     public final static String EXTRA_DATA =
             "com.example.bluetooth.le.EXTRA_DATA";
-
     public final static UUID UUID_HEART_RATE_MEASUREMENT =
             UUID.fromString(BleGattAttributes.HEART_RATE_MEASUREMENT);
-
+    private final static String TAG = BluetoothLeService.class.getSimpleName();
+    private static final int STATE_DISCONNECTED = 0;
+    private static final int STATE_CONNECTING = 1;
+    private static final int STATE_CONNECTED = 2;
+    private final IBinder mBinder = new LocalBinder();
+    private BluetoothManager mBluetoothManager;
+    private BluetoothAdapter mBluetoothAdapter;
+    private String mBluetoothDeviceAddress;
+    private BluetoothGatt mBluetoothGatt;
+    private int mConnectionState = STATE_DISCONNECTED;
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
     private final BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
@@ -152,12 +148,6 @@ public class BluetoothLeService extends Service {
         sendBroadcast(intent);
     }
 
-    public class LocalBinder extends Binder {
-        BluetoothLeService getService() {
-            return BluetoothLeService.this;
-        }
-    }
-
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
@@ -171,8 +161,6 @@ public class BluetoothLeService extends Service {
         close();
         return super.onUnbind(intent);
     }
-
-    private final IBinder mBinder = new LocalBinder();
 
     /**
      * Initializes a reference to the local Bluetooth adapter.
@@ -315,5 +303,11 @@ public class BluetoothLeService extends Service {
         if (mBluetoothGatt == null) return null;
 
         return mBluetoothGatt.getServices();
+    }
+
+    public class LocalBinder extends Binder {
+        BluetoothLeService getService() {
+            return BluetoothLeService.this;
+        }
     }
 }

@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.activity_recognition.ActivityRecognizedActivity;
+import tests.em_projects.com.mytestapplication.billing.BillingActivity;
 
 /**
  * @ref http://stackoverflow.com/questions/3185103/how-to-define-a-circle-shape-in-an-android-xml-drawable-file
@@ -21,6 +21,7 @@ import tests.em_projects.com.mytestapplication.activity_recognition.ActivityReco
  * @ref http://stackoverflow.com/questions/14212518/is-there-a-way-to-define-a-min-and-max-value-for-edittext-in-android
  * @ref http://stackoverflow.com/questions/28578701/create-android-shape-background-programmatically
  * @ref http://stackoverflow.com/questions/9387711/android-animation-flicker
+ * @ref https://developer.android.com/google/play/billing/billing_integrate.html
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -105,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, MultiValuesColumnGaugeActivity.class);  // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, MultiValuesCircleActivity.class);   // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, AutoStatusCounterActivity.class);     // --> // TODO for ListenApp
-                Intent intent = new Intent(MainActivity.this, ActivityRecognizedActivity.class);    // --> // TODO for ListenApp
+//                Intent intent = new Intent(MainActivity.this, ActivityRecognizedActivity.class);    // --> // TODO for ListenApp
+                Intent intent = new Intent(MainActivity.this, BillingActivity.class);    // --> // TODO for ListenApp
                 startActivity(intent);
             }
         }, 100);

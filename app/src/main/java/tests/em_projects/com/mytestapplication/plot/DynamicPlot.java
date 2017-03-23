@@ -56,6 +56,15 @@ public class DynamicPlot extends View {
 
     // Plot animation properties
     private volatile boolean mRunAnimation = false;
+    private Runnable DecrementTask = new Runnable() {
+        @Override
+        public void run() {
+            checkVerticalsPositionValidation();
+            checkHorizontalsPositionValidation();
+            invalidate();
+            postDelayed(this, STEP_TIME);
+        }
+    };
 
     public DynamicPlot(Context context) {
         super(context);
@@ -194,14 +203,4 @@ public class DynamicPlot extends View {
     private void checkHorizontalsPositionValidation() {
         // TODO do nothing currently
     }
-
-    private Runnable DecrementTask = new Runnable() {
-        @Override
-        public void run() {
-            checkVerticalsPositionValidation();
-            checkHorizontalsPositionValidation();
-            invalidate();
-            postDelayed(this, STEP_TIME);
-        }
-    };
 }

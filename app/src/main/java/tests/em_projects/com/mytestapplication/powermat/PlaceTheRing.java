@@ -29,6 +29,14 @@ public class PlaceTheRing extends Activity {
 
     private int finalPhonePosition;
 
+    public static int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    public static int pxToDp(int px) {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,13 +94,5 @@ public class PlaceTheRing extends Activity {
             }
         });
         activityPlaceTheRingPhoneImageView.startAnimation(translateAnimation);
-    }
-
-    public static int dpToPx(int dp) {
-        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
-    }
-
-    public static int pxToDp(int px) {
-        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 }

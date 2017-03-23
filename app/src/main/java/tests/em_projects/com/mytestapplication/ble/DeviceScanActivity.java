@@ -16,7 +16,6 @@
 
 package tests.em_projects.com.mytestapplication.ble;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.bluetooth.BluetoothAdapter;
@@ -49,14 +48,28 @@ import tests.em_projects.com.mytestapplication.R;
 // Ref: http://stackoverflow.com/questions/6867076/getactionbar-returns-null
 
 public class DeviceScanActivity extends ListActivity {
+    private static final int REQUEST_ENABLE_BT = 1;
+    // Stops scanning after 10 seconds.
+    private static final long SCAN_PERIOD = 10000;
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
     private Handler mHandler;
+    // Device scan callback.
+    private BluetoothAdapter.LeScanCallback mLeScanCallback =
+            new BluetoothAdapter.LeScanCallback() {
 
-    private static final int REQUEST_ENABLE_BT = 1;
-    // Stops scanning after 10 seconds.
-    private static final long SCAN_PERIOD = 10000;
+                @Override
+                public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mLeDeviceListAdapter.addDevice(device);
+                            mLeDeviceListAdapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -188,6 +201,11 @@ public class DeviceScanActivity extends ListActivity {
         invalidateOptionsMenu();
     }
 
+    static class ViewHolder {
+        TextView deviceName;
+        TextView deviceAddress;
+    }
+
     // Adapter for holding devices found through scanning.
     private class LeDeviceListAdapter extends BaseAdapter {
         private ArrayList<BluetoothDevice> mLeDevices;
@@ -252,26 +270,5 @@ public class DeviceScanActivity extends ListActivity {
 
             return view;
         }
-    }
-
-    // Device scan callback.
-    private BluetoothAdapter.LeScanCallback mLeScanCallback =
-            new BluetoothAdapter.LeScanCallback() {
-
-        @Override
-        public void onLeScan(final BluetoothDevice device, int rssi, byte[] scanRecord) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    mLeDeviceListAdapter.addDevice(device);
-                    mLeDeviceListAdapter.notifyDataSetChanged();
-                }
-            });
-        }
-    };
-
-    static class ViewHolder {
-        TextView deviceName;
-        TextView deviceAddress;
     }
 }
