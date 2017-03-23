@@ -13,16 +13,16 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:measureAllChildren="true"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:measureAllChildren="true">
 
         <ImageView
             android:id="@+id/circleShapeImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/circle_shape"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/circle_shape" />
 
         <tests.em_projects.com.mytestapplication.gauges.CircularSeekBar
             android:id="@+id/circular"

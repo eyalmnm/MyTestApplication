@@ -3,8 +3,10 @@
 
     <PreferenceCategory android:title="Some title">
 
-        <ListPreference android:key="default_category"
-            android:title="Dynamic categories" android:summary="Dynamic categories summary"
-            android:defaultValue="0" />
+        <ListPreference
+            android:defaultValue="0"
+            android:key="default_category"
+            android:summary="Dynamic categories summary"
+            android:title="Dynamic categories" />
     </PreferenceCategory>
 </PreferenceScreen>
