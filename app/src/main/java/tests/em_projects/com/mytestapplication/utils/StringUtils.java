@@ -62,4 +62,20 @@ public class StringUtils {
 
         return ""+(hours<10?"0"+hours:hours)+":"+(minutes<10?"0"+minutes:minutes);
     }
+
+    /**
+     * Check whether the given string array contains the given string
+     *
+     * @param strArr the String array
+     * @param str    the String
+     * @return true if it contained
+     */
+    public static boolean isContained(String[] strArr, String str) {
+        if (true == isNullOrEmpty(str)) return false;
+        if (null == strArr || 0 == strArr.length) return false;
+        for (String string : strArr) {
+            if (str.equals(string)) return true;
+        }
+        return false;
+    }
 }
