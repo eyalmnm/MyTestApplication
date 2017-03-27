@@ -58,7 +58,7 @@ public class InAppBillingService extends Service {
         iabHelper = new IabHelper(this, base64EncodedPublicKey);
 
         // enable debug logging.
-        iabHelper.enableDebugLogging(true);
+        iabHelper.enableDebugLogging(true);   // TODO change to false
 
         // Start set up and bind the In-app Billing service
         iabHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
