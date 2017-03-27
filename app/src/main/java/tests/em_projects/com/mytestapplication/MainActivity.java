@@ -22,6 +22,7 @@ import tests.em_projects.com.mytestapplication.billing.BillingActivity;
  * @ref http://stackoverflow.com/questions/28578701/create-android-shape-background-programmatically
  * @ref http://stackoverflow.com/questions/9387711/android-animation-flicker
  * @ref https://developer.android.com/google/play/billing/billing_integrate.html
+ * @ref https://developer.android.com/training/in-app-billing/index.html
  */
 public class MainActivity extends AppCompatActivity {
 
