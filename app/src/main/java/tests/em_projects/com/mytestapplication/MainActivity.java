@@ -23,6 +23,7 @@ import tests.em_projects.com.mytestapplication.billing.BillingActivity;
  * @ref http://stackoverflow.com/questions/9387711/android-animation-flicker
  * @ref https://developer.android.com/google/play/billing/billing_integrate.html
  * @ref https://developer.android.com/training/in-app-billing/index.html
+ * @ref https://developer.android.com/google/play/billing/index.html
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -85,16 +86,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 //                Intent intent = new Intent(MainActivity.this, PlotActivity.class);    // --> // TODO for Hera-Med
-//                Intent intent = new Intent(MainActivity.this, ImageCropActivity.class);
+//                Intent intent = new Intent(MainActivity.this, ImageCropActivity.class);   // --> // TODO for Hera-Med
 //                Intent intent = new Intent(MainActivity.this, MovingButtons.class);
-//                Intent intent = new Intent(MainActivity.this, CircularSeekBarActivity.class);
+//                Intent intent = new Intent(MainActivity.this, CircularSeekBarActivity.class); // --> // TODO for Hera-Med
 //                Intent intent = new Intent(MainActivity.this, EditablePrefList.class);
 //                Intent intent = new Intent(MainActivity.this, DataUsageActivity.class);
-//                Intent intent = new Intent(MainActivity.this, ViewPagerActivity.class);
+//                Intent intent = new Intent(MainActivity.this, ViewPagerActivity.class);   // --> // TODO for Hera-Med
 //                Intent intent = new Intent(MainActivity.this, CombinedAnimAndGauge.class);
 //                Intent intent = new Intent(MainActivity.this, SimpleCarouselTest.class);
 //                Intent intent = new Intent(MainActivity.this, StatusCounterActivity.class);    // --> // TODO for GreenRoad
-//                Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);
+//                Intent intent = new Intent(MainActivity.this, CustomViewActivity.class);  // --> // TODO for GreenRoad
 //                Intent intent = new Intent(MainActivity.this, MovingCroppedBGActivity.class);
 //                Intent intent = new Intent(MainActivity.this, BigImageDisplay.class);
 //                Intent intent = new Intent(MainActivity.this, GrowBigImage.class);
