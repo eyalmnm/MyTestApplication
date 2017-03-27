@@ -10,7 +10,7 @@ import android.widget.Button;
 import tests.em_projects.com.mytestapplication.R;
 
 /**
- * Created by USER on 23/03/2017.
+ * Created by eyal muchtar on 23/03/2017.
  */
 
 public class BillingActivity extends Activity {
@@ -28,7 +28,7 @@ public class BillingActivity extends Activity {
         buyItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d(TAG, "onClick");
             }
         });
     }
