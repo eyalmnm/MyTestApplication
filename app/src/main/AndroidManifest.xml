@@ -46,9 +46,6 @@
             android:name=".activity_recognition.ActivityRecognizedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".billing.InAppPurchaseActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".billing.BillingActivity"
             android:screenOrientation="portrait" />
 
