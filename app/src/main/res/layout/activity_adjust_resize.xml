@@ -10,17 +10,11 @@
     <ScrollView
         android:id="@+id/smsAuthScroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginBottom="25dp"
-        android:layout_marginTop="25dp"
-        android:isScrollContainer="false">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
@@ -30,8 +24,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/smsAuthScroll"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -42,7 +37,7 @@
             android:inputType="textCapWords"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:text="msg_enter_mobile"
+            android:text="Enter Mobile Phone"
             android:textColor="@android:color/white"
             android:textSize="14dp" />
 
@@ -53,7 +48,7 @@
             android:layout_marginBottom="15dp"
             android:background="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:hint="name_et_hint"
+            android:hint="Name"
             android:maxLines="1"
             android:padding="5dp"
             android:textColor="@color/colorPrimary"
@@ -65,7 +60,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:hint="phoneNumber_et_hint"
+            android:hint="Phone Number"
             android:inputType="phone"
             android:maxLength="10"
             android:padding="5dp"
@@ -81,7 +76,7 @@
             android:layout_marginTop="25dp"
             android:background="@color/colorPrimaryDark"
             android:padding="5dp"
-            android:text="lbl_next"
+            android:text="Next"
             android:textColor="@android:color/white"
             android:textSize="14dp" />
     </LinearLayout>
