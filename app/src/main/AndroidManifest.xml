@@ -48,6 +48,9 @@
         <activity
             android:name=".billing.BillingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".adjustResize.AdjustResizeActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
 
         <service android:name=".activity_recognition.ActivityRecognizedService" />
     </application>
