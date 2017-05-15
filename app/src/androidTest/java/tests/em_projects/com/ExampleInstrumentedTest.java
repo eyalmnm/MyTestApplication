@@ -16,6 +16,8 @@ import static junit.framework.Assert.assertEquals;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+    private static final String TAG = "ExampleInstrumentedTest";
+
     @Test
     public void useAppContext() throws Exception {
         // Context of the app under test.

@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.billing.BillingActivity;
+import tests.em_projects.com.mytestapplication.adjustResize.AdjustResizeActivity;
 
 /**
  * @ref http://stackoverflow.com/questions/3185103/how-to-define-a-circle-shape-in-an-android-xml-drawable-file
@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, MultiValuesCircleActivity.class);   // --> // TODO for Integral
 //                Intent intent = new Intent(MainActivity.this, AutoStatusCounterActivity.class);     // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, ActivityRecognizedActivity.class);    // --> // TODO for ListenApp
-                Intent intent = new Intent(MainActivity.this, BillingActivity.class);    // --> // TODO for ListenApp
+//                Intent intent = new Intent(MainActivity.this, BillingActivity.class);    // --> // TODO for ListenApp
+                Intent intent = new Intent(MainActivity.this, AdjustResizeActivity.class);    // --> // TODO for ListenApp
                 startActivity(intent);
             }
         }, 100);
