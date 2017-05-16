@@ -18,6 +18,11 @@ public class AdjustResizeActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adjust_resize);
+
+        // Make sure the view adjust while showing keyboard
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
         ScrollView sv = (ScrollView) findViewById(R.id.smsAuthScroll);
         sv.setEnabled(false);
     }
