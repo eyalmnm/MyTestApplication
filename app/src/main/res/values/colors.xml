@@ -7,4 +7,7 @@
     <!-- Search bar bg -->
     <color name="background_actionbar">#40000000</color>
     <color name="background_actionbar_shadow">#59000000</color>
+
+    <!-- WaveFormView colors -->
+    <color name="wfv_bg_color">#66000000</color>
 </resources>
