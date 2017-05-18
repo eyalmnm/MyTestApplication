@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dip"
+    android:animateLayoutChanges="true"
+    android:background="#efefef"
+    android:orientation="horizontal"
+    android:padding="10dip"
+    android:theme="@style/ListenAppTheme">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circular_ring"
+        android:src="@drawable/head" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"
+        android:layout_toRightOf="@+id/avatar"
+        android:minWidth="150dip"
+        android:text="@string/app_name"
+        android:textAppearance="@style/NotificationContent"
+        android:textColor="@color/wfv_bg_color" />
+
+    <ImageView
+        android:id="@+id/notification_icon"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_toRightOf="@+id/message" />
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_toRightOf="@+id/notification_icon" />
+
+</RelativeLayout>
