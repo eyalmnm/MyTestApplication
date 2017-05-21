@@ -5,11 +5,13 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,12 +26,17 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * Created by Eyal Muchtar on 18/05/2017.
  */
 
-public class TwoLinesNotificationView extends LinearLayout {
-    private static final String TAG = "TwoLinesNotificationVw";
+// @Ref: http://stackoverflow.com/questions/3345084/how-can-i-animate-a-view-in-android-and-have-it-stay-in-the-new-position-size
+// @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
 
+public class TwoLinesNotificationView extends LinearLayout implements View.OnTouchListener {
+    private static final String TAG = "TwoLinesNotificationVw";
     private static final long DISPLAY_DURATION = 3000;    // milliseconds
+
+    ;
     private static final int STEP_TIME = 1000;
     private final int TICK_WHAT = 2;
+    private DISPLAY_STATE currentState = DISPLAY_STATE.MAXIMIZED;
     private ArrayList<NotificationIconView> iconViews;
     // Views properties
     private LinearLayout iconsLayout;
@@ -66,6 +73,7 @@ public class TwoLinesNotificationView extends LinearLayout {
     }
 
     private void updateNotificationIcons() {
+        Log.d(TAG, "updateNotificationIcons");
         long now = System.currentTimeMillis();
         ImageView imageView = null;
         for (int i = 0; i < iconViews.size(); i++) {
@@ -102,7 +110,70 @@ public class TwoLinesNotificationView extends LinearLayout {
         addView(notificationsView);
         addView(iconsLayout);
 
+        setOnTouchListener(this);
+
         start();
+    }
+
+    // @Ref: http://stackoverflow.com/questions/3345084/how-can-i-animate-a-view-in-android-and-have-it-stay-in-the-new-position-size
+    // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (DISPLAY_STATE.MAXIMIZED == currentState || DISPLAY_STATE.GROWING == currentState) {
+            requestLayout();
+            Animation animation = shrinkAnimation();
+            animation.setFillEnabled(true);
+            animation.setFillAfter(true);
+            setAnimation(animation);
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    currentState = DISPLAY_STATE.SHRINKING;
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    currentState = DISPLAY_STATE.MINIMIZED;
+                    animation = new TranslateAnimation(0.0F, 0.0F, 0.0F, 0.0F);
+                    animation.setDuration(1);
+                    this.onAnimationStart(animation);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                    currentState = DISPLAY_STATE.SHRINKING;
+                }
+            });
+            animation.start();
+        } else if (DISPLAY_STATE.MINIMIZED == currentState || DISPLAY_STATE.SHRINKING == currentState) {
+            requestLayout();
+            Animation animation = grawAnimation();
+            animation.setFillEnabled(true);
+            animation.setFillAfter(true);
+            setAnimation(animation);
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    currentState = DISPLAY_STATE.GROWING;
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    currentState = DISPLAY_STATE.MAXIMIZED;
+                    animation = new TranslateAnimation(0.0F, 0.0F, 0.0F, 0.0F);
+                    animation.setDuration(1);
+                    this.onAnimationStart(animation);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                    currentState = DISPLAY_STATE.GROWING;
+                }
+            });
+            animation.start();
+        }
+        //}
+        return false;
     }
 
     private void initNotificationsViewComponents(ViewGroup notificationsView) {
@@ -180,6 +251,27 @@ public class TwoLinesNotificationView extends LinearLayout {
         return animationSet;
     }
 
+    private AnimationSet shrinkAnimation() {
+        AnimationSet animationSet;
+        Log.d(TAG, "shrink Animation");
+        animationSet = new AnimationSet(true);
+        Animation animation = new ScaleAnimation(1.0F, 0.2F, 1.0F, 0.2F, Animation.RELATIVE_TO_SELF, 0.0F, Animation.RELATIVE_TO_SELF, 0.0F);
+        animation.setDuration(500);
+        animationSet.addAnimation(animation);
+        return animationSet;
+    }
+
+    private AnimationSet grawAnimation() {
+        AnimationSet animationSet;
+        Log.d(TAG, "shrink Animation");
+        animationSet = new AnimationSet(true);
+        Animation animation = new ScaleAnimation(0.2F, 1.0F, 0.2F, 1.0F, Animation.RELATIVE_TO_SELF, 0.0F, Animation.RELATIVE_TO_SELF, 0.0F);
+        animation.setDuration(500);
+        animationSet.addAnimation(animation);
+        return animationSet;
+    }
+
+    private enum DISPLAY_STATE {SHRINKING, MINIMIZED, GROWING, MAXIMIZED}
 
     private class NotificationIconView {
 
