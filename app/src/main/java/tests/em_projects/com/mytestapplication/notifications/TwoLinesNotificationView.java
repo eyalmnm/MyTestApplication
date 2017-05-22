@@ -25,23 +25,30 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * Created by Eyal Muchtar on 18/05/2017.
  */
 
+// @Ref: https://www.sitepoint.com/android-gestures-and-touch-mechanics/    <-------<<-  Drag and Scale
 // @Ref: http://stackoverflow.com/questions/3345084/how-can-i-animate-a-view-in-android-and-have-it-stay-in-the-new-position-size
 // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
 
+
 public class TwoLinesNotificationView extends LinearLayout implements View.OnClickListener {
+
     private static final String TAG = "TwoLinesNotificationVw";
     private static final long DISPLAY_DURATION = 3000;    // milliseconds
 
-    ;
+    // Thread's components
     private static final int STEP_TIME = 1000;
     private final int TICK_WHAT = 2;
-    private DISPLAY_STATE currentState = DISPLAY_STATE.MAXIMIZED;
-    private ArrayList<NotificationIconView> iconViews;
-
     // Views properties
     private ViewGroup notificationsView;
     private LinearLayout iconsLayout;
     private ImageView minimizedModeImageView;
+    private int padding = 0;
+    // Notification View Components
+    private ImageView avatar;
+    private TextView message;
+    private ImageView notification_icon;
+    private ImageView app_icon;
+    private ArrayList<NotificationIconView> iconViews;
     private Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
@@ -52,12 +59,8 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
             postDelayed(this, STEP_TIME);
         }
     };
-    private int padding = 0;
-    // Notification View Components
-    private ImageView avatar;
-    private TextView message;
-    private ImageView notification_icon;
-    private ImageView app_icon;
+    private DISPLAY_STATE currentState = DISPLAY_STATE.MAXIMIZED;
+
 
     public TwoLinesNotificationView(Context context) {
         super(context);
@@ -75,7 +78,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
     }
 
     private void updateNotificationIcons() {
-        Log.d(TAG, "updateNotificationIcons");
+//        Log.d(TAG, "updateNotificationIcons");
         long now = System.currentTimeMillis();
         ImageView imageView = null;
         for (int i = 0; i < iconViews.size(); i++) {
@@ -122,7 +125,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
         addView(iconsLayout);
         addView(minimizedModeImageView);
 
-        setOnClickListener(this);
+//        setOnClickListener(this);
 
         start();
     }
@@ -233,7 +236,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
 
     private AnimationSet iconInAnimation() {
         AnimationSet animationSet;
-        Log.d(TAG, "cell In Animation");
+//        Log.d(TAG, "cell In Animation");
         animationSet = new AnimationSet(true);
         Animation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setDuration(100);
@@ -249,7 +252,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
 
     private AnimationSet iconOutAnimation() {
         AnimationSet animationSet;
-        Log.d(TAG, "cell Out Animation");
+//        Log.d(TAG, "cell Out Animation");
         animationSet = new AnimationSet(true);
         Animation animation = new AlphaAnimation(1.0f, 0.0f);
         animation.setDuration(100);
