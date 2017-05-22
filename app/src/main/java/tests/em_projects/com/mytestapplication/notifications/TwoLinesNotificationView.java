@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -29,7 +28,7 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 // @Ref: http://stackoverflow.com/questions/3345084/how-can-i-animate-a-view-in-android-and-have-it-stay-in-the-new-position-size
 // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
 
-public class TwoLinesNotificationView extends LinearLayout implements View.OnTouchListener {
+public class TwoLinesNotificationView extends LinearLayout implements View.OnClickListener {
     private static final String TAG = "TwoLinesNotificationVw";
     private static final long DISPLAY_DURATION = 3000;    // milliseconds
 
@@ -38,8 +37,11 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
     private final int TICK_WHAT = 2;
     private DISPLAY_STATE currentState = DISPLAY_STATE.MAXIMIZED;
     private ArrayList<NotificationIconView> iconViews;
+
     // Views properties
+    private ViewGroup notificationsView;
     private LinearLayout iconsLayout;
+    private ImageView minimizedModeImageView;
     private Runnable timerRunnable = new Runnable() {
         @Override
         public void run() {
@@ -97,7 +99,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
         iconViews = new ArrayList<>();
 
         // Inquire the notification View
-        ViewGroup notificationsView = (ViewGroup) View.inflate(context, R.layout.notification, null);
+        notificationsView = (ViewGroup) View.inflate(context, R.layout.notification, null);
         initNotificationsViewComponents(notificationsView);
 
         // Create the Icon's layout
@@ -106,11 +108,21 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
         iconsLayout.setLayoutParams(layoutParams);
         iconsLayout.setGravity(Gravity.RIGHT);
 
+        // Create the minimized Icon ImageView
+        LayoutParams minimizedModeImageViewLayoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        minimizedModeImageViewLayoutParams.gravity = Gravity.LEFT;
+        minimizedModeImageView = new ImageView(context);
+        minimizedModeImageView.setLayoutParams(minimizedModeImageViewLayoutParams);
+        minimizedModeImageView.setImageResource(R.drawable.icon);
+        minimizedModeImageView.setVisibility(GONE);
+
+
         // Add Views to root
         addView(notificationsView);
         addView(iconsLayout);
+        addView(minimizedModeImageView);
 
-        setOnTouchListener(this);
+        setOnClickListener(this);
 
         start();
     }
@@ -118,7 +130,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
     // @Ref: http://stackoverflow.com/questions/3345084/how-can-i-animate-a-view-in-android-and-have-it-stay-in-the-new-position-size
     // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public void onClick(View v) {
         if (DISPLAY_STATE.MAXIMIZED == currentState || DISPLAY_STATE.GROWING == currentState) {
             requestLayout();
             Animation animation = shrinkAnimation();
@@ -137,6 +149,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
                     animation = new TranslateAnimation(0.0F, 0.0F, 0.0F, 0.0F);
                     animation.setDuration(1);
                     this.onAnimationStart(animation);
+                    toggleViews(true);
                 }
 
                 @Override
@@ -155,6 +168,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
                 @Override
                 public void onAnimationStart(Animation animation) {
                     currentState = DISPLAY_STATE.GROWING;
+                    toggleViews(false);
                 }
 
                 @Override
@@ -172,8 +186,6 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
             });
             animation.start();
         }
-        //}
-        return false;
     }
 
     private void initNotificationsViewComponents(ViewGroup notificationsView) {
@@ -269,6 +281,12 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnTou
         animation.setDuration(500);
         animationSet.addAnimation(animation);
         return animationSet;
+    }
+
+    private void toggleViews(boolean minimizedMode) {
+        notificationsView.setVisibility(minimizedMode ? GONE : VISIBLE);
+        iconsLayout.setVisibility(minimizedMode ? GONE : VISIBLE);
+        minimizedModeImageView.setVisibility(minimizedMode ? VISIBLE : GONE);
     }
 
     private enum DISPLAY_STATE {SHRINKING, MINIMIZED, GROWING, MAXIMIZED}
