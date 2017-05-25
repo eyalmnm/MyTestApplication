@@ -1,8 +1,10 @@
 package tests.em_projects.com.mytestapplication.utils;
 
 import android.util.Log;
+import android.util.Patterns;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 /**
  * Created by eyal on 20/04/16.
@@ -77,5 +79,16 @@ public class StringUtils {
             if (str.equals(string)) return true;
         }
         return false;
+    }
+
+    /**
+     * Check phone number validation
+     *
+     * @param phoneNumber the given phone number
+     * @return is valid
+     */
+    public static boolean isPhoneNumber(String phoneNumber) {
+        Pattern pattern = Patterns.PHONE;
+        return pattern.matcher(phoneNumber).matches();
     }
 }
