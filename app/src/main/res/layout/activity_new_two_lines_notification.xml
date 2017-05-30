@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <tests.em_projects.com.mytestapplication.notifications.TwoLinesNotificationView
-        android:id="@+id/twoLinesNotificationView"
+    <tests.em_projects.com.mytestapplication.notifications.NewTwoLinesNotificationView
+        android:id="@+id/newTwoLinesNotificationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></tests.em_projects.com.mytestapplication.notifications.TwoLinesNotificationView>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
