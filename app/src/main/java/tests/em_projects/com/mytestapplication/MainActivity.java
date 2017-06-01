@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import tests.em_projects.com.mytestapplication.notifications.NewTwoLinesNotificationViewActivity;
+import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
  * @ref http://stackoverflow.com/questions/3185103/how-to-define-a-circle-shape-in-an-android-xml-drawable-file
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toast.makeText(this, "Resolution group is: " + (DimenUtils.dpToPx(160)) / 160, Toast.LENGTH_LONG).show();
 
         Log.d(TAG, "Now is: " + sdf.format(new Date(System.currentTimeMillis())));
 

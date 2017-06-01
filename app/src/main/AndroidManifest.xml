@@ -63,6 +63,7 @@
 
         <!-- Notification -->
         <activity android:name=".notifications.TwoLinesNotificationViewActivity" />
+        <activity android:name=".notifications.NewTwoLinesNotificationViewActivity" />
 
     </application>
 
