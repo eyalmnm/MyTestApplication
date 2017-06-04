@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
 
 
-public class NewTwoLinesNotificationView extends LinearLayout implements View.OnClickListener {
+public class NewTwoLinesNotificationView extends LinearLayout implements /*GestureDetector.OnGestureListener*/ View.OnClickListener {
 
     private static final String TAG = "NewTwoLinesNotifVw";
     private static final long DISPLAY_DURATION = 3000;    // milliseconds
@@ -38,6 +39,9 @@ public class NewTwoLinesNotificationView extends LinearLayout implements View.On
     // Thread's components
     private static final int STEP_TIME = 1000;
     private final int TICK_WHAT = 2;
+
+    // Gesture
+    private GestureDetector gestureDetector;
 
     // Views properties
     private LinearLayout notificationsLayout;
@@ -129,6 +133,7 @@ public class NewTwoLinesNotificationView extends LinearLayout implements View.On
         addView(iconsLayout);
         addView(minimizedModeImageView);
 
+        setOnClickListener(this);
         start();
     }
 
@@ -136,6 +141,7 @@ public class NewTwoLinesNotificationView extends LinearLayout implements View.On
     // @Ref: http://stackoverflow.com/questions/16238513/animation-not-starting-until-ui-updates-or-touch-event
     @Override
     public void onClick(View v) {
+        Log.d(TAG, "onClick");
         if (DISPLAY_STATE.MAXIMIZED == currentState || DISPLAY_STATE.GROWING == currentState) {
             requestLayout();
             Animation animation = shrinkAnimation();
@@ -304,6 +310,44 @@ public class NewTwoLinesNotificationView extends LinearLayout implements View.On
         iconsLayout.setVisibility(minimizedMode ? GONE : VISIBLE);
         minimizedModeImageView.setVisibility(minimizedMode ? VISIBLE : GONE);
     }
+
+    /*
+    //***************************************   OnGestureListener **********************************
+    @Override
+    public boolean onDown(MotionEvent e) {
+        Log.d(TAG, "onDown: " + e.toString());
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+        Log.d(TAG, "onShowPress: " + e.toString());
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        Log.d(TAG, "onSingleTapUp: " + e.toString());
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        Log.d(TAG, "onScroll: " + e1.toString() + " - " + e2.toString());
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Log.d(TAG, "onLongPress: " + e.toString());
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        Log.d(TAG, "onFling: " + e1.toString() + " - " + e2.toString());
+        return true;
+    }
+    //***************************************   OnGestureListener **********************************
+    */
 
     private enum DISPLAY_STATE {SHRINKING, MINIMIZED, GROWING, MAXIMIZED}
 
