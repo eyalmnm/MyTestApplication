@@ -65,6 +65,9 @@
         <activity android:name=".notifications.TwoLinesNotificationViewActivity" />
         <activity android:name=".notifications.NewTwoLinesNotificationViewActivity" />
 
+        <service android:name=".notifications.NewTwoLinesNotificationViewService" />
+        <activity android:name=".notifications.IconWithBadgeActivity" />
+
     </application>
 
 </manifest>
