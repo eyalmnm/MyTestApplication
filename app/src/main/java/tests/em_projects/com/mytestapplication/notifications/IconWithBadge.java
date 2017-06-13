@@ -16,6 +16,7 @@ import tests.em_projects.com.mytestapplication.utils.StringUtils;
 /**
  * Created by USER on 06/06/2017.
  */
+// @Ref: https://stackoverflow.com/questions/7164630/how-to-change-shape-color-dynamically
 
 public class IconWithBadge extends RelativeLayout {
     private static final String TAG = "IconWithBadge";
@@ -64,6 +65,10 @@ public class IconWithBadge extends RelativeLayout {
         badgeTextView.setGravity(Gravity.CENTER);
         badgeTextView.setTextSize(DimenUtils.dpToPx(3));
         badgeTextView.setBackground(getContext().getResources().getDrawable(R.drawable.icon_badge));
+
+//        GradientDrawable bgShape = (GradientDrawable)badgeTextView.getBackground();
+//        bgShape.setColor(Color.BLACK);
+
         badgeTextView.setVisibility(INVISIBLE);
 
         addView(iconImageView, iconParams);
