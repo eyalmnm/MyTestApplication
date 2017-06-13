@@ -66,7 +66,7 @@ public class IconWithBadgeActivity extends Activity {
 
         iconWithBadge = new IconWithBadge(this);
         int dim = DimenUtils.dpToPx(40);
-        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dim, dim);
+        LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);//(dim, dim);
         mainView.addView(iconWithBadge, iconParams);
 
         return mainView;

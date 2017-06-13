@@ -2,6 +2,7 @@ package tests.em_projects.com.mytestapplication.notifications;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,9 +46,9 @@ public class IconWithBadge extends RelativeLayout {
         padding = DimenUtils.dpToPx(5);
         this.setPadding(padding, padding, padding, padding);
 
-        LayoutParams iconParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        iconParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        iconParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        LayoutParams iconParams = new LayoutParams(DimenUtils.dpToPx(60), DimenUtils.dpToPx(60));
+        //(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        iconParams.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.ALIGN_PARENT_TOP);
         int iconMargin = DimenUtils.dpToPx(1);
         iconParams.setMargins(iconMargin, iconMargin, iconMargin, iconMargin);
         iconImageView = new ImageView(getContext());
@@ -55,9 +56,13 @@ public class IconWithBadge extends RelativeLayout {
         iconImageView.setId(iconImageViewId);
 
         LayoutParams badgeParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        badgeParams.addRule(RelativeLayout.ALIGN_BOTTOM, iconImageViewId);
-        badgeParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+//        badgeParams.addRule(RelativeLayout.ALIGN_BOTTOM, iconImageViewId);
+        badgeParams.addRule(RelativeLayout.ALIGN_TOP, iconImageViewId);
+        badgeParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        badgeParams.setMargins(0, DimenUtils.dpToPx(48), 0, 0);
         badgeTextView = new TextView(getContext());
+        badgeTextView.setGravity(Gravity.CENTER);
+        badgeTextView.setTextSize(DimenUtils.dpToPx(3));
         badgeTextView.setBackground(getContext().getResources().getDrawable(R.drawable.icon_badge));
         badgeTextView.setVisibility(INVISIBLE);
 
