@@ -51,11 +51,6 @@
             android:screenOrientation="portrait" />
         <service android:name=".activity_recognition.ActivityRecognizedService" />
 
-        <!-- Billing -->
-        <activity
-            android:name=".billing.BillingActivity"
-            android:screenOrientation="portrait" />
-
         <!-- Screen adjust for keyboard -->
         <activity
             android:name=".adjustResize.AdjustResizeActivity"

@@ -3,6 +3,7 @@ package tests.em_projects.com.mytestapplication.utils;
 import android.util.Log;
 import android.util.Patterns;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
@@ -90,5 +91,23 @@ public class StringUtils {
     public static boolean isPhoneNumber(String phoneNumber) {
         Pattern pattern = Patterns.PHONE;
         return pattern.matcher(phoneNumber).matches();
+    }
+
+    /**
+     * Create a string for the given ArrayList using the given delimiter as separator
+     *
+     * @param strings   the strings to create a String
+     * @param delimiter the separator between the strings
+     * @return a String that comtains all the given Strings separated by the given delimiterß
+     */
+    public static String stringToString(ArrayList<String> strings, String delimiter) {
+        String delim = "";
+        StringBuilder sb = new StringBuilder();
+        for (String str : strings) {
+            sb.append(delim);
+            delim = delimiter;
+            sb.append(str);
+        }
+        return sb.toString();
     }
 }
