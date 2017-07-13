@@ -63,6 +63,9 @@
         <service android:name=".notifications.NewTwoLinesNotificationViewService" />
         <activity android:name=".notifications.IconWithBadgeActivity" />
 
+        <!-- Layout Animation -->
+        <activity android:name=".layout_anim.LayoutAnimTest" />
+
     </application>
 
 </manifest>

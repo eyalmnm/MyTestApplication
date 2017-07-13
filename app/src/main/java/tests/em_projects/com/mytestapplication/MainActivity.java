@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.notifications.IconWithBadgeActivity;
+import tests.em_projects.com.mytestapplication.layout_anim.LayoutAnimTest;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -117,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, AdjustResizeActivity.class);    // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, TwoLinesNotificationViewActivity.class);    // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, NewTwoLinesNotificationViewActivity.class);    // --> // TODO for ListenApp
-                Intent intent = new Intent(MainActivity.this, IconWithBadgeActivity.class);    // --> // TODO for ListenApp
+//                Intent intent = new Intent(MainActivity.this, IconWithBadgeActivity.class);    // --> // TODO for ListenApp
+                Intent intent = new Intent(MainActivity.this, LayoutAnimTest.class);    // --> // TODO for ListenApp
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
