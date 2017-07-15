@@ -1,9 +1,9 @@
 package tests.em_projects.com.mytestapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
@@ -27,7 +27,7 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * @ref https://developer.android.com/training/in-app-billing/index.html
  * @ref https://developer.android.com/google/play/billing/index.html
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
     private final static String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
