@@ -66,6 +66,9 @@
         <!-- Layout Animation -->
         <activity android:name=".layout_anim.LayoutAnimTest" />
 
+        <!-- Battery Save Mode Detector -->
+        <activity android:name=".battery_save_mode_detect.BatterySafeMode_Activity" />
+
     </application>
 
 </manifest>
