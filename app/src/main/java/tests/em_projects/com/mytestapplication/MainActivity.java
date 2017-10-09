@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.multiple_selection_listview.ListViewMultipleSelectionActivity;
+import tests.em_projects.com.mytestapplication.directories_explorer.DirectoriesExplorerActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -120,7 +120,8 @@ public class MainActivity extends Activity {
 //                Intent intent = new Intent(MainActivity.this, IconWithBadgeActivity.class);    // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, LayoutAnimTest.class);    // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, BatterySafeMode_Activity.class);    // --> // TODO for ListenApp
-                Intent intent = new Intent(MainActivity.this, ListViewMultipleSelectionActivity.class);    // --> // TODO for Orion
+//                Intent intent = new Intent(MainActivity.this, ListViewMultipleSelectionActivity.class);    // --> // TODO for Orion
+                Intent intent = new Intent(MainActivity.this, DirectoriesExplorerActivity.class);    // --> // TODO for Orion
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
