@@ -45,6 +45,7 @@
         <activity android:name=".gauges.MultiValuesColumnGaugeActivity" />
         <activity android:name=".gauges.MultiValuesCircleActivity" />
         <activity android:name=".animations.AutoStatusCounterActivity" />
+        <activity android:name=".animations.AnimatedImageButton" />
 
         <!-- Activity Recognized -->
         <activity
