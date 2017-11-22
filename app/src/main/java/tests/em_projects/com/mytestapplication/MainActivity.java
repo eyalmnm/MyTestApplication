@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.animations.AnimatedImageButton;
+import tests.em_projects.com.mytestapplication.camera.photo.ApiCameraActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -26,6 +26,14 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * @ref https://developer.android.com/google/play/billing/billing_integrate.html
  * @ref https://developer.android.com/training/in-app-billing/index.html
  * @ref https://developer.android.com/google/play/billing/index.html
+ *
+ * TODO implement the following example
+ * Add Permissions checking and requests
+ * @ref https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition
+ * @ref http://saulmm.github.io/mastering-coordinator
+ *
+ * TODO Implement image picker for Orion
+ * @ref github.com/luminousman/MultipleImagePick
  */
 public class MainActivity extends Activity {
 
@@ -122,7 +130,8 @@ public class MainActivity extends Activity {
 //                Intent intent = new Intent(MainActivity.this, BatterySafeMode_Activity.class);    // --> // TODO for ListenApp
 //                Intent intent = new Intent(MainActivity.this, ListViewMultipleSelectionActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, DirectoriesExplorerActivity.class);    // --> // TODO for Orion
-                Intent intent = new Intent(MainActivity.this, AnimatedImageButton.class);    // --> // TODO for Orion
+//                Intent intent = new Intent(MainActivity.this, AnimatedImageButton.class);    // --> // TODO for Orion
+                Intent intent = new Intent(MainActivity.this, ApiCameraActivity.class);    // --> // TODO for Orion
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
