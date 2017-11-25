@@ -23,4 +23,11 @@
         <item name="android:colorBackground">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
 </resources>
