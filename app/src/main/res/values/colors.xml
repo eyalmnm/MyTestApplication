@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="turquoise">#FF00C5CD</color>
+    <color name="light_gray">#FFCCCCCC</color>
+
     <color name="white">#FFFFFFFF</color>
     <color name="textColorPrimary">#FF000000</color>
 
@@ -12,7 +15,19 @@
     <color name="background_actionbar_shadow">#59000000</color>
 
     <color name="transparent">@android:color/transparent</color>
+    <color name="semi_transparent">#44000000</color>
 
     <!-- WaveFormView colors -->
     <color name="wfv_bg_color">#66000000</color>
+
+    <!-- Fab colors -->
+    <color name="colorFAB_normal">#757575</color>
+    <color name="colorFAB_pressed">#55000000</color>
+    <!--color name="colorFAB_pressed">#e0e0e0</color-->
+    <!--color name="colorFAB_pressed">@color/windowBackground</color-->
+
+    <!-- Show camera dialog -->
+    <color name="HintColor">@color/turquoise</color>
+    <color name="windowBackground">@color/light_gray</color>
+
 </resources>

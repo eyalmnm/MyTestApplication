@@ -15,21 +15,33 @@
         android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_purple"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_ChangeCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switch Camera" />
+        <ImageButton
+            android:id="@+id/changeCameraButton"
+            android:layout_width="@dimen/button_icon_width"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_switch_camera_white_18dp" />
 
-        <Button
-            android:id="@+id/button_capture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Capture" />
+        <ImageButton
+            android:id="@+id/captureButton"
+            android:layout_width="@dimen/button_icon_width"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_camera_alt_white_18dp" />
+
+        <ImageButton
+            android:id="@+id/cancelButton"
+            android:layout_width="@dimen/button_icon_width"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_clear_white_18dp" />
+
+        <ImageButton
+            android:id="@+id/flashToggle"
+            android:layout_width="@dimen/button_icon_width"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_flash_auto_white_18dp" />
+
     </LinearLayout>
 
 </LinearLayout>

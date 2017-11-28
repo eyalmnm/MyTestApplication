@@ -2,5 +2,14 @@
     <string name="app_name">My Test Application</string>
 
     <!-- Image Gallery Strings -->
-    <string name="select_files">d% files selected</string>
+    <string name="selected_files">%d files selected</string>
+    <string name="loading">Loading</string>
+    <string name="delete_dialog_title">%d files selected for delete. Do you want to proceed?</string>
+    <string name="record_id">Record Id</string>
+    <string name="root">Root Directory</string>
+
+    <!-- Show camera dialog -->
+    <string name="show_camera_title">Images will be added to record id</string>
+    <string name="record_id_et_hint">File Name</string>
+
 </resources>

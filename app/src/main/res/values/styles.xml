@@ -30,4 +30,10 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="AppButton">
+        <item name="android:background">@drawable/app_button_bg_color_selector</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
 </resources>
