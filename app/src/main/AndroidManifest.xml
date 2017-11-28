@@ -95,6 +95,15 @@
         <!-- Directories explorer -->
         <activity android:name=".directories_explorer.DirectoriesExplorerActivity" />
 
+        <!-- Image Gallery with multiple selection -->
+        <activity
+            android:name=".gallery.ImageGalleryActivity"
+            android:configChanges="screenLayout|screenSize|orientation" />
+        <activity android:name=".gallery.ApiCameraActivity" />
+
+        <!-- BroadcastReceiver testing area -->
+        <activity android:name=".receivers.DynamicReceiverActivity" />
+
     </application>
 
 </manifest>
