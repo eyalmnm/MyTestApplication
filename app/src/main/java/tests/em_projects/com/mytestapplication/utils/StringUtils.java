@@ -110,4 +110,24 @@ public class StringUtils {
         }
         return sb.toString();
     }
+
+    /**
+     * Like the regular contains method but ignuring the cases of the strings
+     *
+     * @param container
+     * @param content
+     * @return
+     */
+    public static boolean containsIgnureCase(String container, String content) {
+        return container.toLowerCase().contains(content.toLowerCase());
+    }
+
+    public static String[] arrayList2StringArray(ArrayList<String> arrayList) {
+        String[] strings = new String[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            strings[i] = arrayList.get(i);
+        }
+        return strings;
+    }
+
 }

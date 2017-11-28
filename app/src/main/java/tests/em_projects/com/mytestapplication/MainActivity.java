@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.camera.photo.ApiCameraActivity;
+import tests.em_projects.com.mytestapplication.gallery.ImageGalleryActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -31,6 +31,8 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * Add Permissions checking and requests
  * @ref https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition
  * @ref http://saulmm.github.io/mastering-coordinator
+ *
+ * TODO Implement Local BroadcastReceiver for Piczaz
  *
  * TODO Implement image picker for Orion
  * @ref github.com/luminousman/MultipleImagePick
@@ -131,7 +133,11 @@ public class MainActivity extends Activity {
 //                Intent intent = new Intent(MainActivity.this, ListViewMultipleSelectionActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, DirectoriesExplorerActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, AnimatedImageButton.class);    // --> // TODO for Orion
-                Intent intent = new Intent(MainActivity.this, ApiCameraActivity.class);    // --> // TODO for Orion
+//                Intent intent = new Intent(MainActivity.this, ApiCameraActivity.class);    // --> // TODO for Orion
+
+                Intent intent = new Intent(MainActivity.this, ImageGalleryActivity.class);    // --> // TODO for Orion
+                intent.putExtra("data", "");    // --> // TODO for Orion
+
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
