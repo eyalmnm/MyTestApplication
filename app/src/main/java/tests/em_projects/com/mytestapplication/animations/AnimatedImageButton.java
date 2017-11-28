@@ -13,6 +13,7 @@ import tests.em_projects.com.mytestapplication.R;
  * Created by eyalmuchtar on 22/10/2017.
  */
 
+// Ref: https://stackoverflow.com/questions/33915142/android-rotate-image-inside-the-button
 
 public class AnimatedImageButton extends Activity implements View.OnClickListener {
 
