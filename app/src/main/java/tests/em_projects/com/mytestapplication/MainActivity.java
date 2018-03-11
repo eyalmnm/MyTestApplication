@@ -1,14 +1,21 @@
 package tests.em_projects.com.mytestapplication;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.kevalpatel.ringtonepicker.RingtonePickerDialog;
+import com.kevalpatel.ringtonepicker.RingtonePickerListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,18 +33,18 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * @ref https://developer.android.com/google/play/billing/billing_integrate.html
  * @ref https://developer.android.com/training/in-app-billing/index.html
  * @ref https://developer.android.com/google/play/billing/index.html
- *
+ * <p>
  * TODO implement the following example
  * Add Permissions checking and requests
  * @ref https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition
  * @ref http://saulmm.github.io/mastering-coordinator
- *
+ * <p>
  * TODO Implement Local BroadcastReceiver for Piczaz
- *
+ * <p>
  * TODO Implement image picker for Orion
  * @ref github.com/luminousman/MultipleImagePick
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private final static String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -56,6 +63,9 @@ public class MainActivity extends Activity {
         Toast.makeText(this, "Resolution group is: " + (DimenUtils.dpToPx(160)) / 160, Toast.LENGTH_LONG).show();
 
         Log.d(TAG, "Now is: " + sdf.format(new Date(System.currentTimeMillis())));
+
+        //playRingTones();
+        showRingTonePicker();
 
         circleShapeImage = (ImageView) findViewById(R.id.circleShapeImage);
 
@@ -134,6 +144,7 @@ public class MainActivity extends Activity {
 //                Intent intent = new Intent(MainActivity.this, DirectoriesExplorerActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, AnimatedImageButton.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, ApiCameraActivity.class);    // --> // TODO for Orion
+//                Intent intent = new Intent(MainActivity.this, JsonTestActivity.class);    // --> // TODO for Orion
 
                 Intent intent = new Intent(MainActivity.this, ImageGalleryActivity.class);    // --> // TODO for Orion
                 intent.putExtra("data", "");    // --> // TODO for Orion
@@ -142,7 +153,68 @@ public class MainActivity extends Activity {
                 startActivity(intent);
                 finish();
             }
-        }, 100);
+        }, 10000);
+    }
 
+    private void showRingTonePicker() {
+        RingtonePickerDialog.Builder ringtonePickerBuilder =
+                new RingtonePickerDialog.Builder(MainActivity.this, getSupportFragmentManager());
+
+        //Set title of the dialog.
+        //If set null, no title will be displayed.
+        ringtonePickerBuilder.setTitle("Select ringtone");
+
+        //Add the desirable ringtone types.
+        ringtonePickerBuilder.addRingtoneType(RingtonePickerDialog.Builder.TYPE_MUSIC);
+        ringtonePickerBuilder.addRingtoneType(RingtonePickerDialog.Builder.TYPE_NOTIFICATION);
+        ringtonePickerBuilder.addRingtoneType(RingtonePickerDialog.Builder.TYPE_RINGTONE);
+        ringtonePickerBuilder.addRingtoneType(RingtonePickerDialog.Builder.TYPE_ALARM);
+
+        //set the text to display of the positive (ok) button. (Optional)
+        ringtonePickerBuilder.setPositiveButtonText("SET RINGTONE");
+
+        //set text to display as negative button. (Optional)
+        ringtonePickerBuilder.setCancelButtonText("CANCEL");
+
+        //Set flag true if you want to play the com.ringtonepicker.sample of the clicked tone.
+        ringtonePickerBuilder.setPlaySampleWhileSelection(true);
+
+        //Set the callback listener.
+        ringtonePickerBuilder.setListener(new RingtonePickerListener() {
+            @Override
+            public void OnRingtoneSelected(String ringtoneName, Uri ringtoneUri) {
+                Toast.makeText(MainActivity.this, "Ringtone Url: " + ringtoneUri.toString(), Toast.LENGTH_SHORT).show();
+                playRingTones(ringtoneUri);
+            }
+        });
+
+        //set the currently selected uri, to mark that ringtone as checked by default. (Optional)
+        //ringtonePickerBuilder.setCurrentRingtoneUri(mCurrentSelectedUri);
+
+        //Display the dialog.
+        ringtonePickerBuilder.show();
+    }
+
+    private void playRingTones(Uri alert) {
+        try {
+            //Uri alert = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            final MediaPlayer mMediaPlayer = new MediaPlayer();
+            mMediaPlayer.setDataSource(this, alert);
+            final AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            if (audioManager.getStreamVolume(AudioManager.STREAM_ALARM) != 0) {
+                mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+                mMediaPlayer.setLooping(true);
+                mMediaPlayer.prepare();
+                mMediaPlayer.start();
+                new Handler(getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mMediaPlayer.stop();
+                        mMediaPlayer.release();
+                    }
+                }, 100);
+            }
+        } catch (Exception e) {
+        }
     }
 }
