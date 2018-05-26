@@ -115,6 +115,10 @@
 
         <activity android:name=".json.JsonTestActivity" />
 
+        <!-- Retrofit Activity -->
+        <activity android:name=".retrofit.RetrofitDemoActivity" />
+        <activity android:name=".retrofit.StackOverFlow.view.RetrofitStackoverflowMainActivity" />
+
     </application>
 
 </manifest>

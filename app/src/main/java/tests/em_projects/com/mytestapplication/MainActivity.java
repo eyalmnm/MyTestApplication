@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.gallery.ImageGalleryActivity;
+import tests.em_projects.com.mytestapplication.retrofit.RetrofitDemoActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -43,7 +43,10 @@ import tests.em_projects.com.mytestapplication.utils.DimenUtils;
  * <p>
  * TODO Implement image picker for Orion
  * @ref github.com/luminousman/MultipleImagePick
- */
+ * TODO Playing with Retrofit
+ * @ref http://square.github.io/retrofit/
+ * @ref http://www.vogella.com/tutorials/Retrofit/article.html
+ * @ref https://www.androidhive.info/2016/05/android-working-with-retrofit-http-library/ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Now is: " + sdf.format(new Date(System.currentTimeMillis())));
 
         //playRingTones();
-        showRingTonePicker();
+        //showRingTonePicker();
 
         circleShapeImage = (ImageView) findViewById(R.id.circleShapeImage);
 
@@ -145,15 +148,15 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, AnimatedImageButton.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, ApiCameraActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, JsonTestActivity.class);    // --> // TODO for Orion
+//                Intent intent = new Intent(MainActivity.this, ImageGalleryActivity.class);    // --> // TODO for Orion
+//                intent.putExtra("data", "");    // --> // TODO for Orion
 
-                Intent intent = new Intent(MainActivity.this, ImageGalleryActivity.class);    // --> // TODO for Orion
-                intent.putExtra("data", "");    // --> // TODO for Orion
-
+                Intent intent = new Intent(MainActivity.this, RetrofitDemoActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             }
-        }, 10000);
+        }, 2000);
     }
 
     private void showRingTonePicker() {
