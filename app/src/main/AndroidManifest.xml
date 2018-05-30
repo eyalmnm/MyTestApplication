@@ -119,6 +119,12 @@
         <activity android:name=".retrofit.RetrofitDemoActivity" />
         <activity android:name=".retrofit.StackOverFlow.view.RetrofitStackoverflowMainActivity" />
 
+        <!-- RxJava Activities -->
+        <activity android:name=".rx_and.RxJavaSimpleActivity" />
+        <activity android:name=".rx_and.ColorsActivity" />
+        <activity android:name=".rx_and.BooksActivity" />
+        <activity android:name=".rx_and.SchedulerActivity" />
+
     </application>
 
 </manifest>
