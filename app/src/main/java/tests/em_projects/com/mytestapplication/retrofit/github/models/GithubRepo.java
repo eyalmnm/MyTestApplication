@@ -2,9 +2,9 @@ package tests.em_projects.com.mytestapplication.retrofit.github.models;
 
 public class GithubRepo {
 
-    String name;
-    String owner;
-    String url;
+    public String name;
+    public String owner;
+    public String url;
 
     @Override
     public String toString() {

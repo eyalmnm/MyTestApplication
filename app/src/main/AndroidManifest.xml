@@ -118,6 +118,9 @@
         <!-- Retrofit Activity -->
         <activity android:name=".retrofit.RetrofitDemoActivity" />
         <activity android:name=".retrofit.StackOverFlow.view.RetrofitStackoverflowMainActivity" />
+        <activity
+            android:name=".retrofit.github.views.activities.RetroMainActivity"
+            android:theme="@style/RetroAppTheme" />
 
         <!-- RxJava Activities -->
         <activity android:name=".rx_and.RxJavaSimpleActivity" />

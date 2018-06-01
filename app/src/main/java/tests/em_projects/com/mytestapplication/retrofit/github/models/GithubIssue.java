@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class GithubIssue {
 
-    String id;
-    String title;
-    String comments_url;
+    public String id;
+    public String title;
+    public String comments_url;
 
     @SerializedName("body")
-    String comment;
+    public String comment;
 
     @Override
     public String toString() {
