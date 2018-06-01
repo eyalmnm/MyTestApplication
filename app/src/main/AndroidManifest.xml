@@ -121,6 +121,7 @@
         <activity
             android:name=".retrofit.github.views.activities.RetroMainActivity"
             android:theme="@style/RetroAppTheme" />
+        <activity android:name=".retrofit.twitter.views.activities.RetrofitTwitterMainActivity" />
 
         <!-- RxJava Activities -->
         <activity android:name=".rx_and.RxJavaSimpleActivity" />
