@@ -129,6 +129,9 @@
         <activity android:name=".rx_and.BooksActivity" />
         <activity android:name=".rx_and.SchedulerActivity" />
 
+        <!-- MVVM Game Activity -->
+        <activity android:name=".architecture.mvvm.game.view.MvvmGameActivity" />
+
     </application>
 
 </manifest>

@@ -21,7 +21,10 @@ public class StringUtils {
     public static boolean isNullOrEmpty(String str) {
         if (str == null)
             return true;
-        str = str.trim().replace("?", "").replace("<", "").replace(">", "").replace("&", "").replace("\"", "").replace("\'", "").replace(";", "");
+        str = str.trim().replaceAll("\\?", "").replaceAll("<", "")
+                .replaceAll(">", "").replaceAll("&", "")
+                .replaceAll("\"", "").replaceAll("\'", "")
+                .replaceAll(";", "");
         if (str.trim().length() == 0)
             return true;
         return false;
@@ -130,4 +133,10 @@ public class StringUtils {
         return strings;
     }
 
+    public static String stringFromNumbers(int... numbers) {
+        StringBuilder sNumbers = new StringBuilder();
+        for (int number : numbers)
+            sNumbers.append(number);
+        return sNumbers.toString();
+    }
 }

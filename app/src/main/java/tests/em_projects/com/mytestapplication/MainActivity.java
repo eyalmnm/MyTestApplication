@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.retrofit.RetrofitDemoActivity;
+import tests.em_projects.com.mytestapplication.architecture.mvvm.game.view.MvvmGameActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -150,8 +150,8 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, JsonTestActivity.class);    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, ImageGalleryActivity.class);    // --> // TODO for Orion
 //                intent.putExtra("data", "");    // --> // TODO for Orion
-
-                Intent intent = new Intent(MainActivity.this, RetrofitDemoActivity.class);
+//                Intent intent = new Intent(MainActivity.this, RetrofitDemoActivity.class);    // --> // TODO for StarLab
+                Intent intent = new Intent(MainActivity.this, MvvmGameActivity.class);    // --> // TODO for StarLab
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
