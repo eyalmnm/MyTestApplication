@@ -1,6 +1,5 @@
 package tests.em_projects.com.mytestapplication.architecture.mvvm.game.view;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -46,8 +45,7 @@ public class MvvmGameActivity extends AppCompatActivity {
     }
 
     private void setUpOnGameEndListener() {
-        LiveData<Player> winner = gameViewModel.getWinner();  //  .observe(this, this::onGameWinnerChanged);
-        winner.observe(this, this::onGameWinnerChanged);
+        gameViewModel.getWinner().observe(this, this::onGameWinnerChanged);
     }
 
     @VisibleForTesting
