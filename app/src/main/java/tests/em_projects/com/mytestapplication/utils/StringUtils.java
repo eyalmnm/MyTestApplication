@@ -25,9 +25,7 @@ public class StringUtils {
                 .replaceAll(">", "").replaceAll("&", "")
                 .replaceAll("\"", "").replaceAll("\'", "")
                 .replaceAll(";", "");
-        if (str.trim().length() == 0)
-            return true;
-        return false;
+        return str.trim().length() == 0;
     }
 
     /**
@@ -138,5 +136,16 @@ public class StringUtils {
         for (int number : numbers)
             sNumbers.append(number);
         return sNumbers.toString();
+    }
+
+    // convert from internal Java String format -> UTF-8
+    public static String convertToUTF8(String s) {
+        String out = null;
+        try {
+            out = new String(s.getBytes("UTF-8"), "ISO-8859-1");
+        } catch (java.io.UnsupportedEncodingException e) {
+            return null;
+        }
+        return out;
     }
 }
