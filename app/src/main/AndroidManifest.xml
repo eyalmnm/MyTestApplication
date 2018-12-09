@@ -132,6 +132,10 @@
         <!-- MVVM Game Activity -->
         <activity android:name=".architecture.mvvm.game.view.MvvmGameActivity" />
 
+
+        <!-- Two Frame Activity -->
+        <activity android:name=".frames_test.TwoFramesTestActivity" />
+
     </application>
 
 </manifest>
