@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import tests.em_projects.com.mytestapplication.frames_test.TwoFramesTestActivity;
+import tests.em_projects.com.mytestapplication.network.NetworkTestActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -152,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("data", "");    // --> // TODO for Orion
 //                Intent intent = new Intent(MainActivity.this, RetrofitDemoActivity.class);    // --> // TODO for StarLab
 //                Intent intent = new Intent(MainActivity.this, MvvmGameActivity.class);    // --> // TODO for StarLab
-                Intent intent = new Intent(MainActivity.this, TwoFramesTestActivity.class);    // --> // TODO for A-Studio
+//                Intent intent = new Intent(MainActivity.this, TwoFramesTestActivity.class);    // --> // TODO for A-Studio
+                Intent intent = new Intent(MainActivity.this, NetworkTestActivity.class);    // --> // TODO for A-Studio
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

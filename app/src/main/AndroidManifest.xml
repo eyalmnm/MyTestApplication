@@ -136,6 +136,12 @@
         <!-- Two Frame Activity -->
         <activity android:name=".frames_test.TwoFramesTestActivity" />
 
+        <!-- Network API Testing Activity -->
+        <activity android:name=".network.NetworkTestActivity" />
+
+        <!-- InfoDraw XML parser -->
+        <activity android:name=".infodraw_xml.InfoDrawActivity" />
+
     </application>
 
 </manifest>
