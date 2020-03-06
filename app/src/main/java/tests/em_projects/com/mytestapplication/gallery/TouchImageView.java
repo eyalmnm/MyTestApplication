@@ -26,7 +26,6 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -36,6 +35,8 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.OverScroller;
 import android.widget.Scroller;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 public class TouchImageView extends AppCompatImageView implements ScaleGestureDetector.OnScaleGestureListener {
 
@@ -63,7 +64,6 @@ public class TouchImageView extends AppCompatImageView implements ScaleGestureDe
     private Matrix matrix, prevMatrix;
     private State state;
 
-    ;
     private float minScale;
     private float maxScale;
     private float superMinScale;
@@ -745,11 +745,8 @@ public class TouchImageView extends AppCompatImageView implements ScaleGestureDe
         } else if (x >= -1 && direction < 0) {
             return false;
 
-        } else if (Math.abs(x) + viewWidth + 1 >= getImageWidth() && direction > 0) {
-            return false;
-        }
+        } else return !(Math.abs(x) + viewWidth + 1 >= getImageWidth()) || direction <= 0;
 
-        return true;
     }
 
     /**
@@ -886,10 +883,10 @@ public class TouchImageView extends AppCompatImageView implements ScaleGestureDe
         Log.d(DEBUG, "Scale: " + n[Matrix.MSCALE_X] + " TransX: " + n[Matrix.MTRANS_X] + " TransY: " + n[Matrix.MTRANS_Y]);
     }
 
-    private static enum State {NONE, DRAG, ZOOM, FLING, ANIMATE_ZOOM}
+    private enum State {NONE, DRAG, ZOOM, FLING, ANIMATE_ZOOM}
 
     public interface OnTouchImageViewListener {
-        public void onMove();
+        void onMove();
     }
 
     /**
@@ -1172,7 +1169,7 @@ public class TouchImageView extends AppCompatImageView implements ScaleGestureDe
                 minY = maxY = startY;
             }
 
-            scroller.fling(startX, startY, (int) velocityX, (int) velocityY, minX,
+            scroller.fling(startX, startY, velocityX, velocityY, minX,
                     maxX, minY, maxY);
             currX = startX;
             currY = startY;

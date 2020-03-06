@@ -1,9 +1,10 @@
 package tests.em_projects.com.mytestapplication.rx_and;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     private void configureLayout() {
         setContentView(R.layout.activity_rx_colors);
-        colorListView = (RecyclerView) findViewById(R.id.color_list);
+        colorListView = findViewById(R.id.color_list);
         colorListView.setLayoutManager(new LinearLayoutManager(this));
         simpleStringAdapter = new SimpleStringAdapter(this);
         colorListView.setAdapter(simpleStringAdapter);

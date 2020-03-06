@@ -1,8 +1,9 @@
 package tests.em_projects.com.mytestapplication.carousel;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -29,7 +30,7 @@ public class SimpleCarouselTest extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_carousel_test);
 
-        pager = (ViewPager) findViewById(R.id.myviewpager);
+        pager = findViewById(R.id.myviewpager);
 
         adapter = new MyPagerAdapter(this, this.getSupportFragmentManager());
         pager.setAdapter(adapter);

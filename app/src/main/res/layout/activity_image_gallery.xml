@@ -52,7 +52,7 @@
         android:orientation="horizontal"
         android:padding="5dp">
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -63,7 +63,7 @@
             android:layout_height="@dimen/button_height"
             android:src="@drawable/ic_camera_alt_white_18dp" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -74,7 +74,7 @@
             android:layout_height="@dimen/button_height"
             android:src="@drawable/ic_save_white_18dp" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -85,7 +85,7 @@
             android:layout_height="@dimen/button_height"
             android:src="@drawable/ic_clear_white_18dp" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -96,7 +96,7 @@
             android:layout_height="@dimen/button_height"
             android:src="@drawable/ic_delete_white_18dp" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />

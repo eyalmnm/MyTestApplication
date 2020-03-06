@@ -6,9 +6,10 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -28,8 +29,8 @@ public class CredentialsDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_retro_credentials, null);
-        usernameEditText = (EditText) view.findViewById(R.id.username_edittext);
-        passwordEditText = (EditText) view.findViewById(R.id.password_edittext);
+        usernameEditText = view.findViewById(R.id.username_edittext);
+        passwordEditText = view.findViewById(R.id.password_edittext);
 
         usernameEditText.setText(getArguments().getString("username"));
         passwordEditText.setText(getArguments().getString("password"));

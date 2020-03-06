@@ -2,10 +2,11 @@ package tests.em_projects.com.mytestapplication.animations;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -25,7 +26,7 @@ public class AnimatedImageButton extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animated_image_button);
 
-        testButton = (Button) findViewById(R.id.testButton);
+        testButton = findViewById(R.id.testButton);
         testButton.setOnClickListener(this);
     }
 

@@ -1,8 +1,8 @@
 package tests.em_projects.com.mytestapplication.architecture.mvvm.game.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
-import android.databinding.ObservableArrayMap;
+import androidx.databinding.ObservableArrayMap;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import tests.em_projects.com.mytestapplication.architecture.mvvm.game.model.Cell;
 import tests.em_projects.com.mytestapplication.architecture.mvvm.game.model.Game;

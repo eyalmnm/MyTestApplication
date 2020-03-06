@@ -1,7 +1,8 @@
 package tests.em_projects.com.mytestapplication.architecture.mvvm.game.model;
 
-import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
+
+import androidx.lifecycle.MutableLiveData;
 
 public class Game {
     private static final String TAG = "Game";

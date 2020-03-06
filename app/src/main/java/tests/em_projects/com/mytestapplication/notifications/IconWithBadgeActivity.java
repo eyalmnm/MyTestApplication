@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;

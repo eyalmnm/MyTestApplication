@@ -1,12 +1,13 @@
 package tests.em_projects.com.mytestapplication.carousel;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -32,10 +33,10 @@ public class MyFragment extends Fragment {
 				inflater.inflate(R.layout.mf, container, false);
 		
 		int pos = this.getArguments().getInt("pos");
-		TextView tv = (TextView) l.findViewById(R.id.text);
+        TextView tv = l.findViewById(R.id.text);
 		tv.setText("Position = " + pos);
-		
-		MyLinearLayout root = (MyLinearLayout) l.findViewById(R.id.root);
+
+        MyLinearLayout root = l.findViewById(R.id.root);
 		float scale = this.getArguments().getFloat("scale");
 		root.setScaleBoth(scale);
 		

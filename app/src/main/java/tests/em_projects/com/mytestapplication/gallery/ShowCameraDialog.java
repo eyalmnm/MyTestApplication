@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
@@ -53,8 +54,8 @@ public class ShowCameraDialog extends DialogFragment implements View.OnClickList
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         setCancelable(false);
 
-        recordIdAutoComplete = (AutoCompleteTextView) view.findViewById(R.id.recordIdAutoComplete);
-        okButton = (Button) view.findViewById(R.id.okButton);
+        recordIdAutoComplete = view.findViewById(R.id.recordIdAutoComplete);
+        okButton = view.findViewById(R.id.okButton);
 //        cancelButton = (Button) view.findViewById(R.id.cancelButton);
 
         currentRecId = getArguments().getString("data");

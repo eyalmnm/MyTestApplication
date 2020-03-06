@@ -4,10 +4,10 @@ package tests.em_projects.com.mytestapplication.infodraw_xml
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.MediaController
 import android.widget.VideoView
+import androidx.appcompat.app.AppCompatActivity
 import org.w3c.dom.Attr
 import org.w3c.dom.Document
 import org.w3c.dom.Element
@@ -41,7 +41,7 @@ class InfoDrawActivity : AppCompatActivity() {
         setContentView(R.layout.activity_info_draw)
         Log.d(TAG, "onCreate")
 
-        videoView = findViewById(R.id.videoView) as VideoView
+        videoView = findViewById<VideoView>(R.id.videoView)
 
         val cameraData: CameraData? = infoDrawCapture()
 

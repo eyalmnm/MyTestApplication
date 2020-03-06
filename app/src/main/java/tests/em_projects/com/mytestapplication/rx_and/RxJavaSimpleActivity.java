@@ -2,12 +2,13 @@ package tests.em_projects.com.mytestapplication.rx_and;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -52,7 +53,7 @@ public class RxJavaSimpleActivity extends AppCompatActivity {
     }
 
     private void updateTheUserInterface(int integer) {
-        TextView view = (TextView) findViewById(R.id.resultView);
+        TextView view = findViewById(R.id.resultView);
         view.setText(String.valueOf(integer));
     }
 

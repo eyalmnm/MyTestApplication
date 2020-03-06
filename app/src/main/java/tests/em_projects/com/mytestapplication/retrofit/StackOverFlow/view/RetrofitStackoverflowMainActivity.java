@@ -3,9 +3,6 @@ package tests.em_projects.com.mytestapplication.retrofit.StackOverFlow.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -99,7 +100,7 @@ public class RetrofitStackoverflowMainActivity extends AppCompatActivity impleme
 
         context = this;
 
-        questionsSpinner = (Spinner) findViewById(R.id.questions_spinner);
+        questionsSpinner = findViewById(R.id.questions_spinner);
         questionsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -113,9 +114,9 @@ public class RetrofitStackoverflowMainActivity extends AppCompatActivity impleme
             }
         });
 
-        authenticateButton = (Button) findViewById(R.id.authenticate_button);
+        authenticateButton = findViewById(R.id.authenticate_button);
 
-        recyclerView = (RecyclerView) findViewById(R.id.list);
+        recyclerView = findViewById(R.id.list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 

@@ -2,8 +2,9 @@ package tests.em_projects.com.mytestapplication.adjustResize;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.ScrollView;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -23,7 +24,7 @@ public class AdjustResizeActivity extends Activity {
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        ScrollView sv = (ScrollView) findViewById(R.id.smsAuthScroll);
+        ScrollView sv = findViewById(R.id.smsAuthScroll);
         sv.setEnabled(false);
     }
 }

@@ -3,9 +3,6 @@ package tests.em_projects.com.mytestapplication.retrofit.github.views.activities
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -78,13 +79,13 @@ public class RetroMainActivity extends AppCompatActivity implements CredentialsD
         context = this;
         updateAndroidSecurityProvider(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
 
-        sendButton = (Button) findViewById(R.id.send_comment_button);
+        sendButton = findViewById(R.id.send_comment_button);
 
-        repositoriesSpinner = (Spinner) findViewById(R.id.repositories_spinner);
+        repositoriesSpinner = findViewById(R.id.repositories_spinner);
         repositoriesSpinner.setEnabled(false);
         repositoriesSpinner.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, new String[]{"No repositories available"}));
         repositoriesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -106,13 +107,13 @@ public class RetroMainActivity extends AppCompatActivity implements CredentialsD
             }
         });
 
-        issuesSpinner = (Spinner) findViewById(R.id.issues_spinner);
+        issuesSpinner = findViewById(R.id.issues_spinner);
         issuesSpinner.setEnabled(false);
         issuesSpinner.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, new String[]{"Please select repository"}));
 
-        commentEditText = (EditText) findViewById(R.id.comment_edittext);
+        commentEditText = findViewById(R.id.comment_edittext);
 
-        loadReposButtons = (Button) findViewById(R.id.loadRepos_button);
+        loadReposButtons = findViewById(R.id.loadRepos_button);
 
         createGithubAPI();
     }

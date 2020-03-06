@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -117,9 +118,9 @@ public class ImageGalleryActivity extends Activity implements View.OnClickListen
             throw new NullPointerException("PLEASE DO NOT FORGET TO SEND THE CURRENT RECORD ID AND THE ORIGIN IF FROM RECORD");
         }
 
-        titleTextView = (TextView) findViewById(R.id.titleTextView);
-        gridview = (GridView) findViewById(R.id.gridview);
-        noImagesImageView = (ImageView) findViewById(R.id.noImagesImageView);
+        titleTextView = findViewById(R.id.titleTextView);
+        gridview = findViewById(R.id.gridview);
+        noImagesImageView = findViewById(R.id.noImagesImageView);
 
         initButtons();
 
@@ -128,10 +129,10 @@ public class ImageGalleryActivity extends Activity implements View.OnClickListen
     }
 
     private void initButtons() {
-        cameraButton = (ImageButton) findViewById(R.id.cameraButton);
-        saveButton = (ImageButton) findViewById(R.id.saveButton);
-        cancelButton = (ImageButton) findViewById(R.id.cancelButton);
-        deleteButton = (ImageButton) findViewById(R.id.deleteButton);
+        cameraButton = findViewById(R.id.cameraButton);
+        saveButton = findViewById(R.id.saveButton);
+        cancelButton = findViewById(R.id.cancelButton);
+        deleteButton = findViewById(R.id.deleteButton);
 
         cameraButton.setOnClickListener(this);
         saveButton.setOnClickListener(this);

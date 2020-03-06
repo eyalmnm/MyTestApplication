@@ -2,11 +2,12 @@ package tests.em_projects.com.mytestapplication.rx_and;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.Callable;
 
@@ -50,8 +51,8 @@ public class SchedulerActivity extends AppCompatActivity {
 
     private void configureLayout() {
         setContentView(R.layout.activity_rx_scheduler);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        messageArea = (TextView) findViewById(R.id.messagearea);
+        progressBar = findViewById(R.id.progressBar);
+        messageArea = findViewById(R.id.messagearea);
         button = findViewById(R.id.scheduleLongRunningOperation);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

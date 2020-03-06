@@ -2,8 +2,6 @@ package tests.em_projects.com.mytestapplication.network;
 
 import android.util.Log;
 
-import com.google.android.gms.analytics.Tracker;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
@@ -19,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -41,8 +40,6 @@ public final class ServerUtilities implements Runnable {
     private boolean isRunning = false;
     private Object monitor = new Object();
     private HttpClient client = null;
-
-    private Tracker tracker;
 
     private ServerUtilities() {
         client = new DefaultHttpClient();
@@ -189,9 +186,9 @@ public final class ServerUtilities implements Runnable {
 
     private String handleHttpResponse(HttpResponse httpResponse) throws IllegalStateException, IOException {
         InputStream is = httpResponse.getEntity().getContent();
-        InputStreamReader isr = new InputStreamReader(is, "UTF-8");
+        InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
         BufferedReader bufferedReader = new BufferedReader(isr);
-        StringBuffer stringBuffer = new StringBuffer("");
+        StringBuffer stringBuffer = new StringBuffer();
         String line = "";
         while ((line = bufferedReader.readLine()) != null) {
             stringBuffer.append(line);

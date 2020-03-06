@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -44,9 +45,9 @@ public class DeleteItemsDialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         int selectedFiles = getArguments().getInt("data");
         String title = getString(R.string.delete_dialog_title, selectedFiles);
-        TextView titleTextView = (TextView) view.findViewById(R.id.titleTextView);
-        Button cancelButton = (Button) view.findViewById(R.id.cancelButton);
-        Button okButton = (Button) view.findViewById(R.id.okButton);
+        TextView titleTextView = view.findViewById(R.id.titleTextView);
+        Button cancelButton = view.findViewById(R.id.cancelButton);
+        Button okButton = view.findViewById(R.id.okButton);
         titleTextView.setText(title);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,6 @@ public class DeleteItemsDialog extends DialogFragment {
     }
 
     public interface OnDeleteConfirmListener {
-        public void OnDeleteConfirm(boolean confirm);
+        void OnDeleteConfirm(boolean confirm);
     }
 }

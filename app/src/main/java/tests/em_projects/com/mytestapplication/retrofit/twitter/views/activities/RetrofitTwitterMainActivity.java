@@ -3,14 +3,15 @@ package tests.em_projects.com.mytestapplication.retrofit.twitter.views.activitie
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -104,15 +105,15 @@ public class RetrofitTwitterMainActivity extends AppCompatActivity {
         context = this;
         updateAndroidSecurityProvider(this);
 
-        requestTokenButton = (Button) findViewById(R.id.request_token_button);
-        requestUserDetailsButton = (Button) findViewById(R.id.request_user_details_button);
-        usernameEditText = (EditText) findViewById(R.id.username_edittext);
-        usernameTextView = (TextView) findViewById(R.id.username_textview);
+        requestTokenButton = findViewById(R.id.request_token_button);
+        requestUserDetailsButton = findViewById(R.id.request_user_details_button);
+        usernameEditText = findViewById(R.id.username_edittext);
+        usernameTextView = findViewById(R.id.username_textview);
 
-        nameTextView = (TextView) findViewById(R.id.name_textview);
-        locationTextView = (TextView) findViewById(R.id.location_textview);
-        urlTextView = (TextView) findViewById(R.id.url_textview);
-        descriptionTextView = (TextView) findViewById(R.id.description_textview);
+        nameTextView = findViewById(R.id.name_textview);
+        locationTextView = findViewById(R.id.location_textview);
+        urlTextView = findViewById(R.id.url_textview);
+        descriptionTextView = findViewById(R.id.description_textview);
 
         createTwitterApi();
     }

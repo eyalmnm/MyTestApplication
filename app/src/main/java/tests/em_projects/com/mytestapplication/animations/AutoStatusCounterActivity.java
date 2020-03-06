@@ -2,7 +2,8 @@ package tests.em_projects.com.mytestapplication.animations;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -23,7 +24,7 @@ public class AutoStatusCounterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto_status_counter);
 
-        statusCounter = (StatusCounter) findViewById(R.id.statusCounter);
+        statusCounter = findViewById(R.id.statusCounter);
 
         statusCounter.setTitle("Test");
         statusCounter.setRequiredPercents(80);

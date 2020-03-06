@@ -8,8 +8,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -28,7 +29,7 @@ public class BatterySafeMode_Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battery_safe_mode);
 
-        TextView textView = (TextView) findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textView);
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo network = connectivityManager.getActiveNetworkInfo();

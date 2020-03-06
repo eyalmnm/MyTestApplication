@@ -9,7 +9,7 @@
             type="tests.em_projects.com.mytestapplication.architecture.mvvm.game.viewmodel.GameViewModel" />
     </data>
 
-    <android.support.v7.widget.GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
@@ -113,6 +113,6 @@
             app:layout_columnWeight="1"
             app:layout_row="3"
             app:layout_rowWeight="1" />
-    </android.support.v7.widget.GridLayout>
+    </androidx.gridlayout.widget.GridLayout>
 
 </layout>

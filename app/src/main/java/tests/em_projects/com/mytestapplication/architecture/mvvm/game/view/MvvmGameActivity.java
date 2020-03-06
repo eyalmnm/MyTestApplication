@@ -1,10 +1,11 @@
 package tests.em_projects.com.mytestapplication.architecture.mvvm.game.view;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 
 import tests.em_projects.com.mytestapplication.R;
 import tests.em_projects.com.mytestapplication.architecture.mvvm.game.model.Player;

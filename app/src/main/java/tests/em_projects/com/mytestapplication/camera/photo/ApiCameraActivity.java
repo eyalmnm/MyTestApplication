@@ -9,8 +9,6 @@ import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +16,9 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -152,7 +153,7 @@ public class ApiCameraActivity extends Activity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openCamera();
         } else {
@@ -179,14 +180,14 @@ public class ApiCameraActivity extends Activity {
     }
 
     public void initialize() {
-        cameraPreview = (LinearLayout) findViewById(R.id.camera_preview);
+        cameraPreview = findViewById(R.id.camera_preview);
         mPreview = new CameraPreview(myContext, mCamera);
         cameraPreview.addView(mPreview);
 
-        capture = (ImageButton) findViewById(R.id.captureButton);
+        capture = findViewById(R.id.captureButton);
         capture.setOnClickListener(captrureListener);
 
-        switchCamera = (ImageButton) findViewById(R.id.changeCameraButton);
+        switchCamera = findViewById(R.id.changeCameraButton);
         switchCamera.setOnClickListener(switchCameraListener);
     }
 
@@ -226,11 +227,7 @@ public class ApiCameraActivity extends Activity {
 
     private boolean hasCamera(Context context) {
         //check if the device has camera
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            return true;
-        } else {
-            return false;
-        }
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
     private PictureCallback getPictureCallback() {

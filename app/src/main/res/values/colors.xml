@@ -33,4 +33,7 @@
     <!-- Mvvm Game Colors -->
     <color name="cell_color">#009688</color>
 
+
+    <color name="cast_intro_overlay_button_background_color">#BB33B5E5</color>
+
 </resources>

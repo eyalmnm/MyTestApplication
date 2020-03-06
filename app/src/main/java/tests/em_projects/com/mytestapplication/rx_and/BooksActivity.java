@@ -1,12 +1,13 @@
 package tests.em_projects.com.mytestapplication.rx_and;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -36,8 +37,8 @@ public class BooksActivity extends AppCompatActivity {
 
     private void configureLayout() {
         setContentView(R.layout.activity_rx_books);
-        progressBar = (ProgressBar) findViewById(R.id.loader);
-        booksRecyclerView = (RecyclerView) findViewById(R.id.books_list);
+        progressBar = findViewById(R.id.loader);
+        booksRecyclerView = findViewById(R.id.books_list);
         booksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         simpleStringAdapter = new SimpleStringAdapter(this);
         booksRecyclerView.setAdapter(simpleStringAdapter);

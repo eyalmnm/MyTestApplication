@@ -2,13 +2,14 @@ package tests.em_projects.com.mytestapplication.viewPage;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -56,7 +57,7 @@ public class TheFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView (" + pageNumber + ") (counter: " + counter + ")");
         View view = inflater.inflate(R.layout.fragment_viewpage, container, false);
-        labelTextView = (TextView) view.findViewById(R.id.labelTextView);
+        labelTextView = view.findViewById(R.id.labelTextView);
         labelTextView.setText(title + " " + pageNumber + " - " + counter);
         return view;
     }

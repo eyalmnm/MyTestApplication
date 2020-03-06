@@ -1,6 +1,6 @@
 package tests.em_projects.com.mytestapplication.receivers;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by eyalmuchtar on 11/24/17.

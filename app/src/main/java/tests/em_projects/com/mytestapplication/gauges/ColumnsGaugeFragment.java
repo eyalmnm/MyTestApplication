@@ -2,11 +2,12 @@ package tests.em_projects.com.mytestapplication.gauges;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class ColumnsGaugeFragment extends Fragment {
 
         // Get the LayoutView and a reference to the gauge
         View view = inflater.inflate(R.layout.fragment_columns_gauge, null, false);
-        theGauge = (ColumnsGaugeView) view.findViewById(R.id.theGauge);
+        theGauge = view.findViewById(R.id.theGauge);
 
         // Set Data
         try {

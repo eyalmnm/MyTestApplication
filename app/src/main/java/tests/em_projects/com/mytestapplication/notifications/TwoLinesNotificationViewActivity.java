@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -27,7 +28,7 @@ public class TwoLinesNotificationViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_lines_notification);
 
-        view = (TwoLinesNotificationView) findViewById(R.id.twoLinesNotificationView);
+        view = findViewById(R.id.twoLinesNotificationView);
 
         initServiceHandler();
     }

@@ -2,9 +2,10 @@ package tests.em_projects.com.mytestapplication.viewPage;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class ViewPagerActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpager);
 
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = findViewById(R.id.pager);
         mPager.setPageTransformer(true, new TranslateAndRotatePageTransformer());
         mMyPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mMyPagerAdapter);

@@ -6,13 +6,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
+
+import androidx.annotation.Nullable;
 
 import java.io.File;
 
@@ -41,8 +42,8 @@ public class ShowImageDialog extends DialogFragment implements View.OnClickListe
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        touchImageView = (TouchImageView) view.findViewById(R.id.touchImageView);
-        closeImageButton = (ImageButton) view.findViewById(R.id.closeImageButton);
+        touchImageView = view.findViewById(R.id.touchImageView);
+        closeImageButton = view.findViewById(R.id.closeImageButton);
         closeImageButton.setEnabled(false);
 
         context = getActivity();

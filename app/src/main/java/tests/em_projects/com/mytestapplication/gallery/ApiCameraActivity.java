@@ -11,8 +11,6 @@ import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,6 +21,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ZoomControls;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -182,7 +183,7 @@ public class ApiCameraActivity extends Activity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openCamera();
         } else {
@@ -217,7 +218,7 @@ public class ApiCameraActivity extends Activity {
         layoutParamsControl.gravity = Gravity.RIGHT | Gravity.BOTTOM;
         this.addContentView(viewControl, layoutParamsControl);
 
-        ZoomControls zoomControls = (ZoomControls) findViewById(R.id.zoomControls1);
+        ZoomControls zoomControls = findViewById(R.id.zoomControls1);
         params = mCamera.getParameters();
         if (params.isZoomSupported()) {
             final int maxZoomLevel = params.getMaxZoom();
@@ -250,20 +251,20 @@ public class ApiCameraActivity extends Activity {
     }
 
     public void initialize() {
-        cameraPreview = (LinearLayout) findViewById(R.id.camera_preview);
+        cameraPreview = findViewById(R.id.camera_preview);
         mPreview = new CameraPreview(myContext, mCamera);
         cameraPreview.addView(mPreview);
 
-        captureButton = (ImageButton) findViewById(R.id.captureButton);
+        captureButton = findViewById(R.id.captureButton);
         captureButton.setOnClickListener(captrureListener);
 
-        switchCameraButton = (ImageButton) findViewById(R.id.changeCameraButton);
+        switchCameraButton = findViewById(R.id.changeCameraButton);
         switchCameraButton.setOnClickListener(switchCameraListener);
 
-        cancelButton = (ImageButton) findViewById(R.id.cancelButton);
+        cancelButton = findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(cancelListener);
 
-        flashToggle = (ImageButton) findViewById(R.id.flashToggle);
+        flashToggle = findViewById(R.id.flashToggle);
         flashToggle.setOnClickListener(flashToggleListener);
     }
 
@@ -295,11 +296,7 @@ public class ApiCameraActivity extends Activity {
 
     private boolean hasCamera(Context context) {
         //check if the device has camera
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            return true;
-        } else {
-            return false;
-        }
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
     private PictureCallback getPictureCallback() {

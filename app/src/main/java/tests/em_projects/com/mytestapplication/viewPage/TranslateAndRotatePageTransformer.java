@@ -1,8 +1,9 @@
 package tests.em_projects.com.mytestapplication.viewPage;
 
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by eyal on 26/04/16.

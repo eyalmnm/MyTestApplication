@@ -1,10 +1,11 @@
 package tests.em_projects.com.mytestapplication.retrofit.StackOverFlow.view.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(RecyclerViewAdapter.ViewHolder holder, int position) {
-        Answer answer = ((Answer) data.get(position));
+        Answer answer = data.get(position);
         holder.text.setText(answer.toString());
         holder.itemView.setTag(answer.answerId);
     }
@@ -43,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(View v) {
             super(v);
-            text = (TextView) v.findViewById(android.R.id.text1);
+            text = v.findViewById(android.R.id.text1);
         }
     }
 }

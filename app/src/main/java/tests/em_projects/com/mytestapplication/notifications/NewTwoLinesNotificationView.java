@@ -1,7 +1,6 @@
 package tests.em_projects.com.mytestapplication.notifications;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -16,6 +15,8 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
@@ -200,10 +201,10 @@ public class NewTwoLinesNotificationView extends LinearLayout implements /*Gestu
     }
 
     private void initNotificationsViewComponents(ViewGroup notificationsView) {
-        avatar = (ImageView) notificationsView.findViewById(R.id.avatar);
-        message = (TextView) notificationsView.findViewById(R.id.message);
-        notification_icon = (ImageView) notificationsView.findViewById(R.id.notification_icon);
-        app_icon = (ImageView) notificationsView.findViewById(R.id.app_icon);
+        avatar = notificationsView.findViewById(R.id.avatar);
+        message = notificationsView.findViewById(R.id.message);
+        notification_icon = notificationsView.findViewById(R.id.notification_icon);
+        app_icon = notificationsView.findViewById(R.id.app_icon);
     }
 
     public boolean showNotification(int avatarResId, String msg, int notificationIconResId, int appIconResId) {
@@ -216,7 +217,7 @@ public class NewTwoLinesNotificationView extends LinearLayout implements /*Gestu
     }
 
     public boolean addNotification() {
-        View notificationsView = (ViewGroup) View.inflate(getContext(), R.layout.notification, null);
+        View notificationsView = View.inflate(getContext(), R.layout.notification, null);
         notificationsLayout.addView(notificationsView);
         return true;
     }

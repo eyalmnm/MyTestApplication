@@ -3,9 +3,10 @@ package tests.em_projects.com.mytestapplication.directories_explorer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import java.io.File;
 
@@ -29,7 +30,7 @@ public class DirectoriesExplorerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directories_explorer);
 
-        outputTextView = (TextView) findViewById(R.id.outputTextView);
+        outputTextView = findViewById(R.id.outputTextView);
 
         File baseDir = new File(BASE_PATH);
         findDirctories(baseDir, "");

@@ -2,11 +2,12 @@ package tests.em_projects.com.mytestapplication.frames_test;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -18,7 +19,7 @@ public class TwoFramesTestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two_frames_test);
 
-        Button testButton = (Button) findViewById(R.id.testButton);
+        Button testButton = findViewById(R.id.testButton);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +27,7 @@ public class TwoFramesTestActivity extends Activity {
             }
         });
 
-        TextView testButtonTwo = (TextView) findViewById(R.id.testButtonTwo);
+        TextView testButtonTwo = findViewById(R.id.testButtonTwo);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,12 +3,13 @@ package tests.em_projects.com.mytestapplication.layout_anim;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Nullable;
 
 import tests.em_projects.com.mytestapplication.R;
 
@@ -32,9 +33,9 @@ public class LayoutAnimTest extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_anim_test);
 
-        showHideButton = (Button) findViewById(R.id.showHideButton);
+        showHideButton = findViewById(R.id.showHideButton);
         showHideButton.setOnClickListener(this);
-        theLayOut = (LinearLayout) findViewById(R.id.theLayOut);
+        theLayOut = findViewById(R.id.theLayOut);
 
     }
 
