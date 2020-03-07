@@ -359,8 +359,8 @@ public class ImageGalleryActivity extends Activity implements View.OnClickListen
             customView.display(fullPath, fileName, isDir, selectableMode, selectedPositions.contains(position));
 
             // Set height and width constraints for the image view
-            int cellHeight = DimenUtils.dpToPx(100);
-            int cellWidth = DimenUtils.dpToPx(100);
+            int cellHeight = (int) DimenUtils.dpToPx(100);
+            int cellWidth = (int) DimenUtils.dpToPx(100);
             customView.setLayoutParams(new AbsListView.LayoutParams(cellWidth, cellHeight));
 
             return customView;
@@ -393,7 +393,7 @@ public class ImageGalleryActivity extends Activity implements View.OnClickListen
             if (null == files) {
                 return null;
             }
-            int size = DimenUtils.dpToPx(200);
+            int size = (int) DimenUtils.dpToPx(200);
             for (int i = 0; i < files.length; i++) {
                 if (true == BuildConfig.DEBUG) {
                     Log.d(TAG, "doInBackground path: " + directory.getAbsolutePath() + " file name: [" + files[i].getName() + "]");

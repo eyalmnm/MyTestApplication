@@ -61,12 +61,12 @@ public class IconWithBadgeActivity extends Activity {
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         mainView.setOrientation(LinearLayout.HORIZONTAL);
         mainView.setLayoutParams(layoutParams);
-        int padding = DimenUtils.dpToPx(5);
+        int padding = (int) DimenUtils.dpToPx(5);
         mainView.setPadding(padding, padding, padding, padding);
         mainView.setBackgroundColor(Color.YELLOW);
 
         iconWithBadge = new IconWithBadge(this);
-        int dim = DimenUtils.dpToPx(40);
+        int dim = (int) DimenUtils.dpToPx(40);
         LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);//(dim, dim);
         mainView.addView(iconWithBadge, iconParams);
 

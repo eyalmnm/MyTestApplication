@@ -20,7 +20,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 import tests.em_projects.com.mytestapplication.R;
-import tests.em_projects.com.mytestapplication.utils.DimenUtils;
+
+import static tests.em_projects.com.mytestapplication.utils.DimenUtils.dpToPx;
 
 /**
  * Created by Eyal Muchtar on 18/05/2017.
@@ -97,7 +98,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
 
     private void initView(Context context) {
         this.setOrientation(VERTICAL);
-        padding = DimenUtils.dpToPx(5);
+        padding = (int) dpToPx(5);
         this.setPadding(padding, padding, padding, padding);
 
         iconViews = new ArrayList<>();
@@ -108,7 +109,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
 
         // Create the Icon's layout
         iconsLayout = new LinearLayout(context);
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtils.dpToPx(50));
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) dpToPx(50));
         iconsLayout.setLayoutParams(layoutParams);
         iconsLayout.setGravity(Gravity.RIGHT);
 
@@ -209,10 +210,7 @@ public class TwoLinesNotificationView extends LinearLayout implements View.OnCli
     }
 
     public boolean addIcon(int iconResId) {
-        LayoutParams params = new LayoutParams(
-                DimenUtils.dpToPx(40),
-                DimenUtils.dpToPx(40)
-        );
+        LayoutParams params = new LayoutParams((int) dpToPx(40), (int) dpToPx(40));
         params.setMargins(0, padding, padding, padding);
         ImageView iconImageView = new ImageView(getContext());
         iconImageView.setImageResource(iconResId);

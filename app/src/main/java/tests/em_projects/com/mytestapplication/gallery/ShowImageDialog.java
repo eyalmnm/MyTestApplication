@@ -78,7 +78,7 @@ public class ShowImageDialog extends DialogFragment implements View.OnClickListe
         @Override
         protected Bitmap doInBackground(String... strings) {
             File file = new File(strings[0]);
-            int size = DimenUtils.dpToPx(200);
+            int size = (int) DimenUtils.dpToPx(200);
             Bitmap bitmap = null;
             if (true == FileUtils.isImageFile(file)) {
                 try {

@@ -103,7 +103,7 @@ public class NewTwoLinesNotificationView extends LinearLayout implements /*Gestu
 
     private void initView(Context context) {
         this.setOrientation(VERTICAL);
-        padding = DimenUtils.dpToPx(5);
+        padding = (int) DimenUtils.dpToPx(5);
         this.setPadding(padding, padding, padding, padding);
 
         iconViews = new ArrayList<>();
@@ -117,7 +117,7 @@ public class NewTwoLinesNotificationView extends LinearLayout implements /*Gestu
 
         // Create the Icon's layout
         iconsLayout = new LinearLayout(context);
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtils.dpToPx(50));
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) DimenUtils.dpToPx(50));
         iconsLayout.setLayoutParams(layoutParams);
         iconsLayout.setGravity(Gravity.RIGHT);
 
@@ -229,8 +229,8 @@ public class NewTwoLinesNotificationView extends LinearLayout implements /*Gestu
 
     public boolean addIcon(int iconResId) {
         LayoutParams params = new LayoutParams(
-                DimenUtils.dpToPx(40),
-                DimenUtils.dpToPx(40)
+                (int) DimenUtils.dpToPx(40),
+                (int) DimenUtils.dpToPx(40)
         );
         params.setMargins(0, padding, padding, padding);
         ImageView iconImageView = new ImageView(getContext());

@@ -44,13 +44,13 @@ public class IconWithBadge extends RelativeLayout {
     }
 
     private void initView() {
-        padding = DimenUtils.dpToPx(5);
+        padding = (int) DimenUtils.dpToPx(5);
         this.setPadding(padding, padding, padding, padding);
 
-        LayoutParams iconParams = new LayoutParams(DimenUtils.dpToPx(60), DimenUtils.dpToPx(60));
+        LayoutParams iconParams = new LayoutParams((int) DimenUtils.dpToPx(60), (int) DimenUtils.dpToPx(60));
         //(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         iconParams.addRule(RelativeLayout.CENTER_HORIZONTAL | RelativeLayout.ALIGN_PARENT_TOP);
-        int iconMargin = DimenUtils.dpToPx(1);
+        int iconMargin = (int) DimenUtils.dpToPx(1);
         iconParams.setMargins(iconMargin, iconMargin, iconMargin, iconMargin);
         iconImageView = new ImageView(getContext());
         iconImageViewId = View.generateViewId();
@@ -60,7 +60,7 @@ public class IconWithBadge extends RelativeLayout {
 //        badgeParams.addRule(RelativeLayout.ALIGN_BOTTOM, iconImageViewId);
         badgeParams.addRule(RelativeLayout.ALIGN_TOP, iconImageViewId);
         badgeParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        badgeParams.setMargins(0, DimenUtils.dpToPx(48), 0, 0);
+        badgeParams.setMargins(0, (int) DimenUtils.dpToPx(48), 0, 0);
         badgeTextView = new TextView(getContext());
         badgeTextView.setGravity(Gravity.CENTER);
         badgeTextView.setTextSize(DimenUtils.dpToPx(3));

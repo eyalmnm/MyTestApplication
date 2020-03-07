@@ -80,7 +80,7 @@ public class ShowCameraDialog extends DialogFragment implements View.OnClickList
             @Override
             public void onClick(View view) {
                 recordIdAutoComplete.showDropDown();
-                recordIdAutoComplete.setDropDownHeight(DimenUtils.dpToPx(120));
+                recordIdAutoComplete.setDropDownHeight((int) DimenUtils.dpToPx(120));
             }
         });
 
