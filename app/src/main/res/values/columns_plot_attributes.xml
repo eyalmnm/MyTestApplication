@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColumnsPlot">
+        <attr name="maxValue" format="float" />
+        <attr name="minValue" format="float" />
+    </declare-styleable>
+</resources>

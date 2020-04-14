@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import tests.em_projects.com.mytestapplication.plot.ColumnPlotActivity;
+import tests.em_projects.com.mytestapplication.apartments.QuestionnaireActivity;
 import tests.em_projects.com.mytestapplication.utils.DimenUtils;
 
 /**
@@ -156,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, TwoFramesTestActivity.class);    // --> // TODO for A-Studio
 //                Intent intent = new Intent(MainActivity.this, NetworkTestActivity.class);    // --> // TODO for A-Studio
 //                Intent intent = new Intent(MainActivity.this, InfoDrawActivity.class);    // --> // TODO for Swyft
-                Intent intent = new Intent(MainActivity.this, ColumnPlotActivity.class);    // --> // TODO for Swyft
+//                Intent intent = new Intent(MainActivity.this, ColumnPlotActivity.class);    // --> // TODO for Swyft
+                Intent intent = new Intent(MainActivity.this, QuestionnaireActivity.class);   // --> // TODO for Apartment
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

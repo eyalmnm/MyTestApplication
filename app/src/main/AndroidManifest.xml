@@ -141,6 +141,14 @@
         <!-- InfoDraw XML parser -->
         <activity android:name=".infodraw_xml.InfoDrawActivity" />
 
+        <!-- BLE Plot Testing Activity -->
+        <activity
+            android:name=".plot.ColumnPlotActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- apartments -->
+        <activity android:name=".apartments.QuestionnaireActivity" />
+
     </application>
 
 </manifest>

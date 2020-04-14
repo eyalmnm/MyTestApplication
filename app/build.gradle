@@ -3,15 +3,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 29
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "tests.em_projects.com.mytestapplication"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         dataBinding {
             enabled = true
@@ -35,16 +35,16 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'  // Required
-    testImplementation 'org.mockito:mockito-core:2.7.6'  // Optional
-    implementation 'com.google.android.gms:play-services:12.0.1'
+    testImplementation 'org.mockito:mockito-core:2.19.0'  // Optional
+    // implementation 'com.google.android.gms:play-services:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     //compile 'com.android.support:appcompat-v7:25.3.0'
     //compile 'com.android.support:support-v13:25.3.0'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.kevalpatel2106:ringtonepicker:1.1'
 
     // Retrofit
@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // Recycler View
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     // RxJava
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
@@ -63,38 +63,47 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
 
     // Android Design Materials
-    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
 
     // V7 GridView
-    implementation 'com.android.support:gridlayout-v7:26.1.0'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 
     // MVVM
     def lifecycle_version = "1.1.1"
+
     // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // alternatively - just ViewModel
-    implementation "android.arch.lifecycle:viewmodel:$lifecycle_version" // use -ktx for Kotlin
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0' // use -ktx for Kotlin
 
     // alternatively - just LiveData
-    implementation "android.arch.lifecycle:livedata:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
 
     // alternatively - Lifecycles only (no ViewModel or LiveData).
     //     Support library depends on this lightweight import
-    implementation "android.arch.lifecycle:runtime:$lifecycle_version"
-    annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
+    //noinspection LifecycleAnnotationProcessorWithJava8
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.2.0'
 
     // alternately - if using Java8, use the following instead of compiler
-    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
 
     // optional - ReactiveStreams support for LiveData
-    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-reactivestreams:2.2.0'
 
     // optional - Test helpers for LiveData
-    testImplementation "android.arch.core:core-testing:$lifecycle_version"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Firebase Crash
+    implementation 'com.google.firebase:firebase-crash:16.2.1'
+
+    // Acivity Recognition
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 }
+
 repositories {
     mavenCentral()
 }
